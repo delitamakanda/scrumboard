@@ -1,0 +1,21 @@
+{% extends 'main_app/base.html' %}
+{% block title %}Raccourcisseur d'url{% endblock %}
+{% block content %}
+<div>
+    <h5 class="center-align">Liste des URL raccourcies:</h5>
+
+    <a href="{% url 'nouveau' %}" class="valign-wrapper"><i class="material-icons small valign">http</i>Raccourcir un url</a>
+
+    <ul class="collection">
+        {% for mini in minis %}
+            <li class="collection-item">
+                {{ mini.url }} via <a href="http://{{request.get_host}}{% url 'redirection' mini.code %}">{{ request.get_host }} {% url 'redirection' mini.code %}</a>
+                {% if mini.pseudo %} par {{ mini.pseudo}} {% endif %}
+                ({{ mini.nb_acces }} accès)
+            </li>
+            {% empty %}
+            <li class="collection-item">Pas d'url</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
