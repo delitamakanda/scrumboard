@@ -1,0 +1,3 @@
+#: templates/mini_url/liste.html:5
+msgid "Liste des URL raccourcies:"
+msgstr "List of shortener urls"
