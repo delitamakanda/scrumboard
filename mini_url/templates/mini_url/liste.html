@@ -1,8 +1,10 @@
-
+{% extends 'base.html'%}
+{% block title %}Url shortener{% endblock %}
+{% block content %}
 <div>
     <h5 class="center-align">Liste des URL raccourcies:</h5>
 
-    <a href="{% url 'nouveau' %}" class="valign-wrapper"><i class="material-icons small valign">http</i>Raccourcir un url</a>
+    <a href="{% url 'nouveau' %}">Raccourcir un url</a>
 
     <ul class="collection">
         {% for mini in minis %}
@@ -16,3 +18,4 @@
         {% endfor %}
     </ul>
 </div>
+{% endblock %}
