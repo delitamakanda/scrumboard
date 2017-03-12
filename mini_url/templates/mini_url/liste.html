@@ -1,20 +1,21 @@
 {% extends 'base.html'%}
-{% block title %}Url shortener{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Raccourcisseur d'url" %}{% endblock %}
 {% block content %}
 <div>
-    <h5 class="center-align">Liste des URL raccourcies:</h5>
+    <h5 class="center-align">{% trans "Liste des URL raccourcies:" %}</h5>
 
-    <a href="{% url 'nouveau' %}">Raccourcir un url</a>
+    <a href="{% url 'nouveau' %}">{% trans "Raccourcir un url" %}</a>
 
     <ul class="collection">
         {% for mini in minis %}
             <li class="collection-item">
-                {{ mini.url }} via <a href="http://{{request.get_host}}{% url 'redirection' mini.code %}">{{ request.get_host }} {% url 'redirection' mini.code %}</a>
-                {% if mini.pseudo %} par {{ mini.pseudo}} {% endif %}
-                ({{ mini.nb_acces }} accès)
+                {{ mini.url }} via <a href="http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }} {% url 'redirection' mini.code %}</a>
+                {% if mini.pseudo %} {% trans "par" %} {{ mini.pseudo}} {% endif %}
+                ({{ mini.nb_acces }} {% trans "accès" %} )
             </li>
             {% empty %}
-            <li class="collection-item">Pas d'url</li>
+            <li class="collection-item">{% trans "Pas d'url" %}</li>
         {% endfor %}
     </ul>
 </div>
