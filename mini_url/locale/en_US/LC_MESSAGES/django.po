@@ -1,3 +1,24 @@
 #: templates/mini_url/liste.html:6
 msgid "Liste des URL raccourcies:"
-msgstr "Liste of shortener urls"
+msgstr "Shortened URL list:"
+
+#: templates/mini_url/liste.html:3
+msgid "Raccourcisseur d'url"
+msgstr "URL Shortcut"
+
+#: templates/mini_url/liste.html:8
+msgid "Raccourcir un url"
+msgstr "Shorten an url"
+
+#: templates/mini_url/liste.html:14
+msgid "par"
+msgstr "by"
+
+#: templates/mini_url/liste.html:15
+msgid "accès"
+msgstr "access"
+
+#: templates/mini_url/liste.html:18
+msgid "Pas d'url"
+msgstr "no item"
+
