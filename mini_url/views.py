@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MiniUrl
 from .forms import MiniUrlForm
+from django.views.generic.base import TemplateView
 
 def liste(request):
     minis = MiniUrl.objects.order_by('-nb_acces')
@@ -22,3 +23,7 @@ def redirection(request, code):
     mini.save()
 
     return redirect(mini.url, permanent=True)
+
+
+class ContactView(TemplateView):
+    pass
