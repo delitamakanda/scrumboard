@@ -4,7 +4,11 @@
 {% block content %}
 
 <div class="column">
-    
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">{% trans "Envoyer" %}</button>
+    </form>
 </div>
 
 {% endblock %}

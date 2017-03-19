@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block title %}{% trans "Création d'une url raccourcie" %}{% endblock %}
 {% block content %}
-<div>
+<div class="column">
     <h5 class="center-align">{% trans "Raccourcir une url" %} </h5>
     <a href="{% url 'liste' %}">{% trans "Retourner aux urls" %}</a>
     <form method="post" action="{% url 'nouveau' %}">
