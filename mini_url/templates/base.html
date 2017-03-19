@@ -15,7 +15,7 @@
       <div class="top-bar">
           <div class="top-bar-left">
               <ul class="menu">
-                  <li class="menu-text">Shorten app</li>
+                  <li class="menu-text"><a href="{% url 'liste' %}">Shorten app</a></li>
                   <li><a href="{% url 'nouveau' %}"><i class="fi-page-add"></i>{% trans "Raccourcir un url" %}</a></li>
               </ul>
           </div>
@@ -27,7 +27,7 @@
               <h5 class="subheader">{% trans "Raccourcisser vos urls grâce à notre service" %}</h5>
           </div>
       </div>
-      
+
       <main>
           {% block content %}{% endblock %}
       </main>
@@ -36,6 +36,7 @@
          <ul class="menu">
              <li><a href="{% url 'privacy-policies' %}">{% trans "politique de confidentialité " %}</a></li>
              <li><a href="{% url 'contact' %}">{% trans "contacter nous " %}</a></li>
+             <li>Copyright (c) 2017 Copyright Shorten App All Rights Reserved.</li>
          </ul>
      </footer>
 

@@ -8,7 +8,7 @@
     <form method="post" action="{% url 'nouveau' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-default">{% trans "Publier" %}</button>
+        <button type="submit" class="success button">{% trans "Publier" %}</button>
     </form>
 </div>
 {% endblock %}
