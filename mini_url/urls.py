@@ -2,6 +2,14 @@ from django.conf.urls import url
 from . import views
 from django.views.generic.base import TemplateView
 from django.conf import settings
+from django.contrib.sitemaps.views import sitemap
+from mini_url.sitemap import (
+    MiniUrlSitemap,
+)
+
+sitemaps = {
+    'urls': MiniUrlSitemap,
+}
 
 # < 1.9
 #urlpatterns = ('mini_url.views',
@@ -22,4 +30,6 @@ urlpatterns = [
     url(r'^(?P<code>\w{6})/$', views.redirection, name='redirection'),
     url(r'^contact/$', views.contact_us_view, name="contact"),
     url(r'^privacy-policies/$', TemplateView.as_view(template_name='mini_url/privacy-policies.html'), name="privacy-policies"),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+    name='django.contrib.sitemaps.views.sitemap'),
 ]

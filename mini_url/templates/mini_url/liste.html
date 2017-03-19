@@ -17,8 +17,8 @@
     {% for mini in minis %}
         <tr class="collection-item">
             <td>{{ mini.url }}</td>
-            <td>via <a href="http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }} {% url 'redirection' mini.code %}</a></td>
-            <td>{% if mini.pseudo %} {% trans "par" %} {{ mini.pseudo}} {% endif %}</td>
+            <td>via <a href=" http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }} {% url 'redirection' mini.code %}</a></td>
+            <td>{% if mini.pseudo %} {% trans "par" %} {{ obj.get_absolute_url }} {% endif %}</td>
             <td>({{ mini.nb_acces }} {% trans "accès" %} )</td>
         </tr>
         {% empty %}

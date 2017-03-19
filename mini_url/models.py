@@ -2,6 +2,7 @@ from django.db import models
 import random
 import string
 from urllib2 import urlopen
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class MiniUrl(models.Model):
@@ -26,6 +27,10 @@ class MiniUrl(models.Model):
         aleatoires = [random.choice(caracteres) for _ in range(N)]
 
         self.code = ''.join(aleatoires)
+
+    def get_absolute_url(self):
+        #return reverse('url', kwargs={'url': self.url})
+        return "/%s" %(self.code)
 
     class Meta:
         verbose_name = 'Mini URL'
