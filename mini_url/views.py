@@ -3,7 +3,7 @@ from .models import MiniUrl
 from .forms import MiniUrlForm, ContactForm
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
-from django.core.mail import EmailMessage, mail_admins, send_email
+from django.core.mail import EmailMessage, mail_admins#, send_email
 from django.template import Context
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
