@@ -7,3 +7,4 @@ dj-static==0.0.6
 waitress==0.8.10
 wsgiref==0.1.2
 hellowebapp-deploy==1.0.2
+django-mailjet==0.3.1
