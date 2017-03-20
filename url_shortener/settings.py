@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'mini_url',
+    'django_mailjet',
 ]
 
 MIDDLEWARE = [
