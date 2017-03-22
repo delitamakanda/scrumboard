@@ -1,7 +1,7 @@
 # url_shortner
 shortener url app for startup
 
-#circleci
+# circleci
 [![CircleCI](https://circleci.com/gh/delitamakanda/url_shortner/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/url_shortner/tree/master)
 
 
