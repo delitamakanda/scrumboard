@@ -14,12 +14,19 @@ def liste(request):
     minis = MiniUrl.objects.order_by('-nb_acces')
     return render(request, 'mini_url/liste.html', locals())
 
+
+def success_miniurl(request, pk):
+    mini = get_object_or_404(MiniUrl, pk=pk)
+    return render(request, 'mini_url/success.html', {'mini': mini})
+
 def nouveau(request):
     if request.method == 'POST':
         form = MiniUrlForm(request.POST)
         if form.is_valid():
+            mini = form.save(commit=False)
+            mini.date = timezone.now()
             form.save()
-            return redirect(liste)
+            return redirect('success_miniurl', pk=mini.pk)
     else:
         form = MiniUrlForm()
     return render(request, 'mini_url/nouveau.html', {'form' : form})
@@ -30,10 +37,6 @@ def redirection(request, code):
     mini.save()
 
     return redirect(mini.url, permanent=True)
-
-def success_miniurl(request, miniurl_id):
-    mini = MiniUrl.objects.get(id=miniurl_id)
-    return render(request, 'mini_url/success.html')
 
 
 def contact_us_view(request):
