@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^urls/$', views.liste, name='liste'),
     url(r'^$', views.nouveau, name='nouveau'),
     url(r'^(?P<code>\w{6})/$', views.redirection, name='redirection'),
+    url(r'^urls/success/$', views.success_miniurl, name='success_miniurl'),
     url(r'^contact/$', views.contact_us_view, name="contact"),
     url(r'^privacy-policies/$', TemplateView.as_view(template_name='mini_url/privacy-policies.html'), name="privacy-policies"),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
