@@ -31,8 +31,8 @@ def redirection(request, code):
 
     return redirect(mini.url, permanent=True)
 
-def success_miniurl(request, pk):
-    mini = get_object_or_404(MiniUrl, pk=pk)
+def success_miniurl(request, miniurl_id):
+    mini = MiniUrl.objects.get(id=miniurl_id)
     return render(request, 'mini_url/success.html')
 
 
