@@ -31,6 +31,9 @@ def redirection(request, code):
 
     return redirect(mini.url, permanent=True)
 
+def success_miniurl(request):
+    pass
+
 
 def contact_us_view(request):
     form_class = ContactForm
