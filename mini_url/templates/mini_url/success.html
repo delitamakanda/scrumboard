@@ -16,11 +16,11 @@
     </thead>
     <tbody>
         <tr class="collection-item">
-            <td>{{ mini.url }}</td>
-            <td>via <a href=" http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }} {% url 'redirection' mini.code %}</a></td>
-            <td>{% if mini.pseudo %} {% trans "par" %} {{ mini.pseudo }} {% endif %}</td>
-            <td>{{ mini.date|date:"d M, Y" }}</td>
-            <td>({{ mini.nb_acces }} {% trans "accès" %} )</td>
+            <td>{{ miniurl.url }}</td>
+            <td>via <a href=" http://{{request.get_host}}{% url 'redirection' miniurl.code %}" target="_blank">{{ request.get_host }} {% url 'redirection' miniurl.code %}</a></td>
+            <td>{% if miniurl.pseudo %} {% trans "par" %} {{ miniurl.pseudo }} {% endif %}</td>
+            <td>{{ miniurl.date|date:"d M, Y" }}</td>
+            <td>({{ miniurl.nb_acces }} {% trans "accès" %} )</td>
         </tr>
     {% endfor %}
     </tbody>
