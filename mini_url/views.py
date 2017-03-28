@@ -9,6 +9,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template.loader import get_template #send a .txt template
 from django.contrib import messages
+import datetime
+from django.utils import timezone
 
 def liste(request):
     minis = MiniUrl.objects.order_by('-nb_acces')
