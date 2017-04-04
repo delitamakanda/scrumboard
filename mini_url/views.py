@@ -14,8 +14,18 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def liste(request):
-    minis = MiniUrl.objects.order_by('-nb_acces')
-    return render(request, 'mini_url/liste.html', locals())
+    minis_list = MiniUrl.objects.order_by('-nb_acces')
+    page = request.GET.get('page', 1)
+    
+    paginator = Paginator(minis_list, 15)
+    try:
+        minis = paginator.page(page)
+    except PageNotAnInteger:
+        minis = paginator.page(1)
+    except EmptyPage:
+        minis = paginator.page(paginator.num_pages)
+    
+    return render(request, 'mini_url/liste.html', locals()) #built-in function for avoid writing variables in context
 
 
 def success_miniurl(request, pk):
