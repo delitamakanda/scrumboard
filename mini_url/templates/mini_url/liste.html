@@ -35,4 +35,34 @@
     </tbody>
 </table>
 
+{% if minis.has_other_pages %}
+    <ul class="pagination">
+            {% if minis.has_previous %}
+                <li>
+                <a href="?page={{ minis.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">&laquo;</a></li>
+            {% endif %}
+
+            {% for i in minis.paginator.page_range %}
+                {% if minis.number == i %}
+                <li class="active">
+                    <!--Page {{ minis.number }} of {{ minis.paginator.num_pages }}-->
+                    <a href="#">{{ i }}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="?page={{i}}">{{ i }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if minis.has_next %}
+                <li><a href="?page={{ minis.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">&raquo;</a></li>
+            {% endif %}
+    </ul>
+{% endif %}
+
 {% endblock %}
