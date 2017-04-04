@@ -11,6 +11,7 @@ from django.template.loader import get_template #send a .txt template
 from django.contrib import messages
 import datetime
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def liste(request):
     minis = MiniUrl.objects.order_by('-nb_acces')
