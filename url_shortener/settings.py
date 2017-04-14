@@ -76,6 +76,14 @@ TEMPLATES = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'KEY_PREFIX': 'url_shortener',
+        'LOCATION': config('MEMCACHED_LOCATION', '127.0.0.1:8000'),
+    },
+}
+
 WSGI_APPLICATION = 'url_shortener.wsgi.application'
 
 
