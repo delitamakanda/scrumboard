@@ -10,3 +10,8 @@ footer {
     background-color: #EEEEEE;
     border-top: 1px solid #d7ecfa;
 }
+
+.collection .collection-item td {
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
