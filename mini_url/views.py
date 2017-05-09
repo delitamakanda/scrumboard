@@ -25,7 +25,7 @@ verify_token = "my_voice_is_my_password"
 
 def get_joke(fbid, recevied_message):
     joke_text = requests.get("http://api.icndb.com/jokes/random/").json()['value']['joke']
-    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%'EAAYhpiOyWHsBAGXoYf6H6OigfpnPuZBwtGVQEoEGucqZA2ZBlRAPTfJ3KYGqaZBlhh82oV7jQgLkXPUZAGqFS9d0FfW5X0Wkbj6ZCFuo4sa8FmQZBZBPMXAZCaqgracbeHFNxk2vOBKlfN2mvUxc7hk6plLZBxuFVUxCZAE4BW8qOGYVwZDZD'
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%'EAACxQVloyxMBAKyKKIpA5GfPGgORdSzp1OnWOx6jl2vALEnZCnJphTCDQeZBVfcKRLAgVH5f4vvNAtKpIKt2YP9uKhybktLVHEtNn9ZCjdtCko4ZB4x97IZCzgoaLwYEpJidcdSR2BBwRuFZCjZAerGuHkmpkQsgy7P1FSQXpXZBmwZDZD'
     response_msg = json.dumps({"recipient": {"id": fbid }, "message": {"text": joke_text}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
     pprint(status.json())
