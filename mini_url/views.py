@@ -20,12 +20,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
-verify_token = "my_voice_is_my_password"
+verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
 
 
 def get_joke(fbid, recevied_message):
     joke_text = requests.get("http://api.icndb.com/jokes/random/").json()['value']['joke']
-    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%'EAACxQVloyxMBAKyKKIpA5GfPGgORdSzp1OnWOx6jl2vALEnZCnJphTCDQeZBVfcKRLAgVH5f4vvNAtKpIKt2YP9uKhybktLVHEtNn9ZCjdtCko4ZB4x97IZCzgoaLwYEpJidcdSR2BBwRuFZCjZAerGuHkmpkQsgy7P1FSQXpXZBmwZDZD'
+    post_message_url = 'https://graph.facebook.com/v2.6/me/messages?access_token=%s'%'EAACxQVloyxMBAHVq6hQbsX17NSJiGb3vSYVbnFdgpqqnQNvFZCRK93o9Ge73KqWs6fzh8KVRd2fMrFvcZBbSCU5hrJFtiST2DLaU4RDSgcIdZCzWiG1d13M6uqcB363qBI937KOYHmKEZBCmwQVcfx4XXZBWEsg308EoeMRdIngZDZD'
     response_msg = json.dumps({"recipient": {"id": fbid }, "message": {"text": joke_text}})
     status = requests.post(post_message_url, headers={"Content-Type": "application/json"}, data=response_msg)
     pprint(status.json())
