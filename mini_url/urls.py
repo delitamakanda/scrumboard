@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+from mini_url.views import jokebot
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.contrib.sitemaps.views import sitemap
