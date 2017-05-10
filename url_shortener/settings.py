@@ -148,6 +148,9 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
+FB_APP_ID = os.environ.get('FB_APP_ID');
+FB_SECRET = os.environ.get('FB_SECRET');
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
