@@ -48,6 +48,8 @@ class jokebot(generic.View):
             for message in entry['messaging']:
                 if 'message' in message:
                     get_joke(message['sender']['id'], message['message']['text'])
+                else:
+                    HttpResponse('a jerk has posted a sticker')
         return HttpResponse()
 
 def liste(request):
