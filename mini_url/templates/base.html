@@ -4,8 +4,8 @@
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'styles/semantic.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/app.css' %}">
@@ -15,25 +15,23 @@
     <meta name="keywords" content="django, webapp, delita makanda, python, shortener, urls, twitter, facebook, instagram, google plus, short, url, link, href, adsense, raccourcisseur">
   </head>
   <body>
-      <div class="top-bar">
-          <div class="top-bar-left">
-              <ul class="menu">
-                  <li class="menu-text"><a href="{% url 'nouveau' %}">Shorten app</a></li>
-                  <li><a href="{% url 'nouveau' %}"><i class="fi-page-add"></i>{% trans "Raccourcir un url" %}</a></li>
-                <li><a href="{% url 'liste' %}"><i class="fi-list-bullet"></i>{% trans "urls" %}</a></li>
-              </ul>
+      <div class="ui fixed inverted menu">
+          <div class="ui container">
+            <a href="/" class="header item">
+              Shorten
+            </a>
+            <a href="{% url 'liste' %}" class="item">{% trans "Voir les urls" %}</a>
+            <a href="{% url 'nouveau' %}" class="item">{% trans "Raccourcir un url" %}</a>
           </div>
       </div>
 
-      <div class="callout large primary">
-          <div class="row column text-center">
-              <h1>{% trans "Raccourcisseur d'urls" %}</h1>
-              <h5 class="subheader">{% trans "Raccourcisser vos urls grâce à notre service" %}</h5>
-          </div>
+      <div class="ui main text container">
+        <h1 class="ui header">{% trans "Raccourcisseur d'urls" %}</h1>
+        <p>{% trans "Raccourcisser vos urls grâce à notre service" %}</p>
       </div>
 
       <main>
-        <div class="text-center">
+        <div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- leaderboard-company -->
 <ins class="adsbygoogle"
@@ -51,7 +49,7 @@
           <br>
           <br>
 
-        <div class="text-center">
+        <div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- leaderboard-company -->
 <ins class="adsbygoogle"
@@ -64,12 +62,13 @@
         </div>
       </main>
 
-     <footer>
-         <ul class="menu">
-             <li><a href="{% url 'privacy-policies' %}">{% trans "politique de confidentialité " %}</a></li>
-         </ul>
-       <div class="text-center">
-             <small>Copyright (c) 2017 Copyright Shorten App {% trans "Tous droits réservés " %}.</small>
+     <footer class="ui inverted vertical footer segment">
+       <div class="ui center aligned container">
+         <div class="ui inverted section divider"></div>
+         <div class="ui horizontal inverted small divided link list">
+           <a href="{% url 'privacy-policies' %}" class="item">{% trans "politique de confidentialité " %}</a>
+           <a href=""class="item">Copyright (c) 2017 Copyright Shorten App {% trans "Tous droits réservés " %}.</a>
+         </div>
        </div>
      </footer>
 
