@@ -35,14 +35,15 @@
     </tbody>
 </table>
 
-{% if minis.has_next %}
-
-    {% if minis.has_next %}
+ {% if minis.has_next %}
     <div class="ui center aligned container">
         <a class="item" href="?page={{ minis.next_page_number }}">More</a>
     </div>
-    {% endif %}
+  {% endif %}
 
-{% endif %}
+  <div class="loading" style="display: none;">
+    Loading...
+  </div>
+
 
 {% endblock %}
