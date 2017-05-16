@@ -1,3 +1,5 @@
+#https://djangosnippets.org/snippets/10600/
+#gravatar settings
 import hashlib
 from django import template
 
