@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     {% for mini in minis %}
-        <tr>
+        <tr class="infinite-container">
             <td>{{ mini.url }}</td>
             <td>via <a href=" http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirection' mini.code %}</a></td>
             <td>{% if mini.pseudo %} {% trans "par" %} {{ mini.pseudo }} {% endif %}</td>
@@ -35,34 +35,12 @@
     </tbody>
 </table>
 
-{% if minis.has_other_pages %}
-    <ul class="pagination text-center">
-            {% if minis.has_previous %}
-                <li>
-                <a href="?page={{ minis.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="disabled"><a href="#">&laquo;</a></li>
-            {% endif %}
+{% if minis.has_next %}
 
-            {% for i in minis.paginator.page_range %}
-                {% if minis.number == i %}
-                <li class="active">
-                    <!--Page {{ minis.number }} of {{ minis.paginator.num_pages }}-->
-                    <a href="#">{{ i }}</a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="?page={{i}}">{{ i }}</a>
-                </li>
-                {% endif %}
-            {% endfor %}
+    {% if numbers.has_next %}
+        <a class="item" href="?page={{ minis.next_page_number }}">More</a>
+    {% endif %}
 
-            {% if minis.has_next %}
-                <li><a href="?page={{ minis.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="disabled"><a href="#">&raquo;</a></li>
-            {% endif %}
-    </ul>
 {% endif %}
 
 {% endblock %}
