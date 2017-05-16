@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'profile_middleware.ProfileMiddleware',
+    #'profile_middleware.ProfileMiddleware',
 ]
 
 ROOT_URLCONF = 'url_shortener.urls'
