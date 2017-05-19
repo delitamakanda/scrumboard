@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     {% for mini in minis %}
-        <tr class="infinite-container">
+        <tr>
             <td>{{ mini.url }}</td>
             <td>via <a href=" http://{{request.get_host}}{% url 'redirection' mini.code %}" target="_blank">{{ request.get_host }}{% url 'redirection' mini.code %}</a></td>
             <td>{% if mini.pseudo %} {% trans "par" %} {{ mini.pseudo }} {% endif %}</td>
@@ -40,22 +40,5 @@
         <a class="item" href="?page={{ minis.next_page_number }}">More</a>
     </div>
   {% endif %}
-
-  <div class="loading" style="display: none;">
-    Loading...
-  </div>
-
-<script>
-    var infinite = new Waypoint.Infinite({
-      element: $('.infinite-container')[0],
-      onBeforePageLoad: function () {
-        $('.loading').show();
-      },
-      onAfterPageLoad: function ($items) {
-        $('.loading').hide();
-      }
-    });
-  </script>
-
 
 {% endblock %}
