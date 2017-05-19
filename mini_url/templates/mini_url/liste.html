@@ -41,4 +41,29 @@
     </div>
   {% endif %}
 
+{% if minis.has_other_pages %}
+    <div class="ui center aligned container">
+        {% if minis.has_previous %}		
+             <a href="?page={{ minis.previous_page_number }}" class="item">&laquo;</a>	
+         {% else %}		
+             <a href="#" class="item">&laquo;</a>
+         {% endif %}
+        
+        {% for i in minis.paginator.page_range %}
+            {% if minis.number == i %}
+                <a href="#" class="item">{{ i }}</a>
+            {% else %}
+                <a href="?page={{i}}" class="item">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+        
+        {% if minis.has_next %}		
+             <a href="?page={{ minis.next_page_number }}" class="item">&raquo;</a>	
+         {% else %}		
+             <a href="#" class="item">&laquo;</a>
+         {% endif %}
+    </div>
+{% endif %}
+
+
 {% endblock %}
