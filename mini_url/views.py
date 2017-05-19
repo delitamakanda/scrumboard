@@ -55,6 +55,7 @@ class jokebot(generic.View):
 def liste(request):
     minis_list = MiniUrl.objects.order_by('-nb_acces')
     page = request.GET.get('page', 1)
+    max_count = minis_list.count()
     
     paginator = Paginator(minis_list, 15)
     try:
