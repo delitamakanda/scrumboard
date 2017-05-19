@@ -3,8 +3,8 @@
 {% block title %}{% trans "Raccourcisseur d'url" %}{% endblock %}
 {% block content %}
 
-<div class="ui two column grid">
-<div class="column">
+{{ minis.count() }} urls {% trans "raccourcies" %}
+
 <table class="ui striped table">
     <thead>
         <tr>
@@ -36,11 +36,6 @@
     </tbody>
 </table>
 
- {% if minis.has_next %}
-    <div class="ui center aligned container">
-        <a class="item" href="?page={{ minis.next_page_number }}">More</a>
-    </div>
-  {% endif %}
 
 {% if minis.has_other_pages %}
     <div class="ui center aligned container">
@@ -68,11 +63,9 @@
         </div>
     <div class="column">
         
-        {{ minis.count|pluralize }} urls {% trans "raccourcies" %}
+        
     
-    </div>
-    
-</div>
+
 
 
 {% endblock %}
