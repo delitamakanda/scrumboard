@@ -27,6 +27,7 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^urls/$', views.liste, name='liste'),
+    url(r'^signup/$', views.signup, name='signup'),
     url(r'^$', views.nouveau, name='nouveau'),
     url(r'^(?P<code>\w{6})/$', views.redirection, name='redirection'),
     url(r'^urls/success/(?P<pk>\d+)/$', views.success_miniurl, name='success_miniurl'),
