@@ -19,6 +19,8 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
 
@@ -90,4 +92,19 @@ def redirection(request, code):
     mini.save()
 
     return redirect(mini.url, permanent=True)
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('liste')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 
