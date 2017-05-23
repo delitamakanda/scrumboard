@@ -5,7 +5,7 @@ from django.views import generic
 from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MiniUrl
-from .forms import MiniUrlForm
+from .forms import MiniUrlForm, SignupForm
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
 from django.core.mail import EmailMessage, mail_admins#, send_email
@@ -96,7 +96,7 @@ def redirection(request, code):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -105,6 +105,6 @@ def signup(request):
             login(request, user)
             return redirect('liste')
     else:
-        form = UserCreationForm()
+        form = SignupForm()
     return render(request, 'mini_url/signup.html', {'form': form})
 
