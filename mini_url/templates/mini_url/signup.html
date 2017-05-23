@@ -6,6 +6,18 @@
     <h5>{% trans "Enregistrez-vous" %} </h5>
     <form method="post">
         {% csrf_token %}
+        {% for field if form %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.help_text %}
+            <small>{{ field.help_text }} </small>
+            {% endif %}
+            {% for error in field.errors %}
+            <small> {{ error }}</small>
+            {% enfor %}
+        </p>
+        {% endfor %}
         {{ form.as_p }}
         <button type="submit" class="ui button">{% trans "Créer un compte" %}</button>
     </form>
