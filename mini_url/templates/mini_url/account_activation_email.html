@@ -1,3 +1,7 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% block title %}{% trans "Activation de votre compte" %}{% endblock %}
+{% block content %}
 
 {% autoescape off %}
 Hi {{ user.username }},
@@ -6,3 +10,4 @@ Please click on the link below to confirm your registration:
 
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 {% endautoescape %}
+{% endblock %}
