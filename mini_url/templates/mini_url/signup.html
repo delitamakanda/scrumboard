@@ -1,1 +1,13 @@
-
+{% extends 'base.html'%}
+{% load i18n %}
+{% block title %}{% trans "Enregistrez-vous" %}{% endblock %}
+{% block content %}
+<div class="ui container">
+    <h5>{% trans "Enregistrez-vous" %} </h5>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="ui button">{% trans "Créer un compte" %}</button>
+    </form>
+</div>
+{% endblock %}
