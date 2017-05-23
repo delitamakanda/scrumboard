@@ -1,3 +1,4 @@
+# http://djangofeeds.soup.io/since/604909962?newer=1
 import json, requests, random, re
 
 from pprint import pprint
@@ -5,17 +6,16 @@ from django.views import generic
 from django.http.response import HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MiniUrl
-from .forms import MiniUrlForm, SignupForm
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
-from django.core.mail import EmailMessage, mail_admins#, send_email
+from django.core.mail import EmailMessage, mail_admins #send_email
 from django.template import Context
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.template.loader import get_template #send a .txt template
 from django.contrib import messages
 import datetime
+from django.contrib.auth import login
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
@@ -23,10 +23,12 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.encoding import force_bytes, force_text
-from django.utils.http import urlsafe_base64_encode
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-from .tokens import account_activation_token
-
+from django.contrib.auth.models import User
+from .models import MiniUrl
+from .forms import MiniUrlForm, SignupForm
+from mini_url.tokens import account_activation_token
 
 verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
 
@@ -64,7 +66,7 @@ def liste(request):
     minis_list = MiniUrl.objects.order_by('-nb_acces')
     page = request.GET.get('page', 1)
     max_count = minis_list.count()
-    
+
     paginator = Paginator(minis_list, 15)
     try:
         minis = paginator.page(page)
@@ -72,7 +74,7 @@ def liste(request):
         minis = paginator.page(1)
     except EmptyPage:
         minis = paginator.page(paginator.num_pages)
-    
+
     return render(request, 'mini_url/liste.html', locals()) #built-in function for avoid writing variables in context
 
 
@@ -132,11 +134,11 @@ def signup(request):
 
 def activate(request, uidb64, token):
     try:
-        uid = force_text(urlsafe_base64_encode(uidb64))
+        uid = force_text(urlsafe_base64_decode(uidb64))
         user = User.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
-        
+
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.profile.email_confirmed = True
@@ -145,10 +147,6 @@ def activate(request, uidb64, token):
         return redirect('liste')
     else:
         return render(request, 'mini_url/account_activation_invalid.html')
-    
-    
- 
-        
-    
-    
-    
+
+def account_activation_sent(request):
+    return render(request, 'mini_url/account_activation_sent.html')
