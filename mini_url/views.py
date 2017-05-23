@@ -3,6 +3,7 @@ import json, requests, random, re
 from pprint import pprint
 from django.views import generic
 from django.http.response import HttpResponse
+from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MiniUrl
 from .forms import MiniUrlForm, SignupForm
@@ -21,6 +22,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+
 
 verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
 
