@@ -35,6 +35,5 @@ urlpatterns = [
     url(r'^urls/success/(?P<pk>\d+)/$', views.success_miniurl, name='success_miniurl'),
     url(r'^privacy-policies/$', TemplateView.as_view(template_name='mini_url/privacy-policies.html'), name="privacy-policies"),
     url(r'^donut/?$', jokebot.as_view(), name='donut_bot'),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-    name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
