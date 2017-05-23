@@ -106,5 +106,5 @@ def signup(request):
             return redirect('liste')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'mini_url/signup.html', {'form': form})
 
