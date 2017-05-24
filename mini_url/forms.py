@@ -26,5 +26,5 @@ class SignupForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
 
     class Meta:
-        model = UserProfile
+        model = Profile
         exclude = ('user',)
