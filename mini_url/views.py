@@ -164,7 +164,7 @@ class UserProfileDetailView(DetailView):
 
 	def get_object(self, queryset=None):
 		user = super(UserProfileDetailView, self).get_object(queryset)
-		UserProfile.objects.get_or_create(user=user)
+		Profile.objects.get_or_create(user=user)
 		return user
 
 class UserProfileEditView(UpdateView):
@@ -174,7 +174,7 @@ class UserProfileEditView(UpdateView):
 	success_message = "%(user)s was updated successfully"
 
 	def get_object(self, queryset=None):
-		return UserProfile.objects.get_or_create(user=self.request.user)[0]
+		return Profile.objects.get_or_create(user=self.request.user)[0]
 
 	def get_success_url(self):
 		return reverse('profile', kwargs={'slug': self.request.user})
