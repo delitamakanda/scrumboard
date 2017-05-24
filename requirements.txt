@@ -10,3 +10,4 @@ hellowebapp-deploy==1.0.2
 python-memcached==1.58
 requests==2.13.0
 sendgrid==4.1.0
+newrelic
