@@ -1,5 +1,5 @@
 from django import forms
-from .models import MiniUrl
+from .models import MiniUrl, Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -19,3 +19,12 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2', 'birth_date', )
+        
+        
+        
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        exclude = ('user',)
