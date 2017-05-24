@@ -84,7 +84,7 @@ def liste(request):
 
 def success_miniurl(request, pk):
     mini = get_object_or_404(MiniUrl, pk=pk)
-    send_mail('New url submitted', mini['url'], 'from@shorten.com', ['delita.makanda@gmail.com'], fail_silently=False)
+    send_mail('New url submitted', 'an url was submitted', 'from@shorten.com', ['delita.makanda@gmail.com'], fail_silently=False)
     return render(request, 'mini_url/success.html', {'mini': mini})
 
 def nouveau(request):
