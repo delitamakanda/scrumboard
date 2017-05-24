@@ -4,14 +4,17 @@ import json, requests, random, re
 from pprint import pprint
 from django.views import generic
 from django.http.response import HttpResponse
+from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
+from django.contrib.auth import get_user_model
 from django.core.mail import EmailMessage, mail_admins #send_email
 from django.template import Context
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.template.loader import get_template #send a .txt template
 from django.contrib import messages
 import datetime
@@ -26,8 +29,8 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
-from .models import MiniUrl
-from .forms import MiniUrlForm, SignupForm
+from .models import MiniUrl, Profile
+from .forms import MiniUrlForm, SignupForm, UserProfileForm
 from mini_url.tokens import account_activation_token
 from django.core.mail import send_mail
 
@@ -152,3 +155,27 @@ def activate(request, uidb64, token):
 
 def account_activation_sent(request):
     return render(request, 'mini_url/account_activation_sent.html')
+
+
+class UserProfileDetailView(DetailView):
+	model = get_user_model()
+	slug_field = "username"
+	template_name = "mini_url/user_detail.html"
+
+	def get_object(self, queryset=None):
+		user = super(UserProfileDetailView, self).get_object(queryset)
+		UserProfile.objects.get_or_create(user=user)
+		return user
+
+class UserProfileEditView(UpdateView):
+	model = Profile
+	form_class = UserProfileForm
+	template_name = "mini_url/edit_profile.html"
+	success_message = "%(user)s was updated successfully"
+
+	def get_object(self, queryset=None):
+		return UserProfile.objects.get_or_create(user=self.request.user)[0]
+
+	def get_success_url(self):
+		return reverse('profile', kwargs={'slug': self.request.user})
+
