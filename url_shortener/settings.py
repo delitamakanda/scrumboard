@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
+import sendgrid
 import os
+from sendgrid.helpers.mail import *
 
 from django.utils.translation import ugettext_lazy as _
 
