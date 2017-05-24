@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from . import views
-from mini_url.views import jokebot
+from mini_url.views import jokebot, UserProfileDetailView, UserProfileEditView
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required as auth
 from django.contrib.sitemaps.views import sitemap
 from mini_url.sitemap import (
     MiniUrlSitemap,
@@ -38,6 +39,8 @@ urlpatterns = [
     #url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'), next page parameters configure a redirection
     url(r'^account_activation_sent/$', views.account_activation_sent, name='account_activation_sent'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
+    url(r'^user/(?P<slug>\w+)/$', UserProfileDetailView.as_view(), name='profile'),
+    url(r'^edit_profile/$', auth(UserProfileEditView.as_view()), name='edit_profile'),
     url(r'^$', views.nouveau, name='nouveau'),
     url(r'^(?P<code>\w{6})/$', views.redirection, name='redirection'),
     url(r'^urls/success/(?P<pk>\d+)/$', views.success_miniurl, name='success_miniurl'),
