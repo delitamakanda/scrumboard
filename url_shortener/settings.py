@@ -153,7 +153,7 @@ STATICFILES_DIRS = (
 FB_APP_ID = os.environ.get('FB_APP_ID');
 FB_SECRET = os.environ.get('FB_SECRET');
 
-
+LOGIN_REDIRECT_URL = 'liste'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'delita.makanda@gmail.com'
