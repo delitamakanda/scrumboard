@@ -19,7 +19,7 @@ class Profile(models.Model):
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-    instance.profile.save()
+        instance.profile.save()
 
 class MiniUrl(models.Model):
     url = models.URLField(verbose_name="URL a reduire", unique=True)
