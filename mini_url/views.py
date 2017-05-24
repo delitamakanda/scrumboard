@@ -29,6 +29,7 @@ from django.contrib.auth.models import User
 from .models import MiniUrl
 from .forms import MiniUrlForm, SignupForm
 from mini_url.tokens import account_activation_token
+from django.core.mail import send_mail
 
 verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
 
@@ -80,6 +81,7 @@ def liste(request):
 
 def success_miniurl(request, pk):
     mini = get_object_or_404(MiniUrl, pk=pk)
+    send_mail('New url submitted', 'a new url was submitted.', 'from@example.com', ['delita.makanda@gmail.com'], fail_silently=False)
     return render(request, 'mini_url/success.html', {'mini': mini})
 
 def nouveau(request):
