@@ -157,7 +157,8 @@ FB_SECRET = os.environ.get('FB_SECRET');
 
 LOGIN_REDIRECT_URL = 'liste'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 DEFAULT_FROM_EMAIL = 'Shorten Team <delita.makanda@gmail.com>'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -165,7 +166,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
-SERVER_EMAIL = 'delita.makanda@gmail.com'
 
 ADMINS = [
     ('Delita', 'delita.makanda@gmail.com')
