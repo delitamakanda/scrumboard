@@ -1,16 +1,6 @@
 from django import forms
-from .models import MiniUrl
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
-class MiniUrlForm(forms.ModelForm):
-
-    class Meta:
-        model = MiniUrl
-        fields = ('url', 'pseudo')
-
-
-
 
 class SignupForm(UserCreationForm):
     birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')

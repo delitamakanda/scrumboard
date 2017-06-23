@@ -17,7 +17,6 @@ from django.contrib import messages
 import datetime
 from django.contrib.auth import login
 from django.utils import timezone
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.contrib.auth import login, authenticate
@@ -26,8 +25,7 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
-from .models import MiniUrl
-from .forms import MiniUrlForm, SignupForm
+from .forms import SignupForm
 from mini_url.tokens import account_activation_token
 
 verify_token = "tes_un_pd_si_tu_mets_pas_de_texte"
@@ -62,44 +60,6 @@ class jokebot(generic.View):
                     HttpResponse('a jerk has posted a sticker')
         return HttpResponse()
 
-def liste(request):
-    minis_list = MiniUrl.objects.order_by('-nb_acces')
-    page = request.GET.get('page', 1)
-    max_count = minis_list.count()
-
-    paginator = Paginator(minis_list, 15)
-    try:
-        minis = paginator.page(page)
-    except PageNotAnInteger:
-        minis = paginator.page(1)
-    except EmptyPage:
-        minis = paginator.page(paginator.num_pages)
-
-    return render(request, 'mini_url/liste.html', locals()) #built-in function for avoid writing variables in context
-
-
-def success_miniurl(request, pk):
-    mini = get_object_or_404(MiniUrl, pk=pk)
-    return render(request, 'mini_url/success.html', {'mini': mini})
-
-def nouveau(request):
-    if request.method == 'POST':
-        form = MiniUrlForm(request.POST)
-        if form.is_valid():
-            mini = form.save(commit=False)
-            mini.date = timezone.now()
-            form.save()
-            return redirect('success_miniurl', pk=mini.pk)
-    else:
-        form = MiniUrlForm()
-    return render(request, 'mini_url/nouveau.html', {'form' : form})
-
-def redirection(request, code):
-    mini = get_object_or_404(MiniUrl, code=code)
-    mini.nb_acces += 1
-    mini.save()
-
-    return redirect(mini.url, permanent=True)
 
 
 def signup(request):
