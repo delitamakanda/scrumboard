@@ -10,8 +10,12 @@
                 var card = {
                     title: title
                 };
-
-                list.cards.push(card);
+                $http.post('/scrumboard/cards/', card)
+                    .then(function(response){
+                        list.cards.push(response.card);
+                    }, function(){
+                        console.log('error');
+                    });
             };
 
             $scope.data = [];
