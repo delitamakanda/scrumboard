@@ -3,6 +3,7 @@ from . import views
 from mini_url.views import jokebot, UserProfileDetailView, UserProfileEditView
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required as auth
 from django.conf import settings
 
 
