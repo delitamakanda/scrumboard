@@ -5,12 +5,13 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required as auth
 from django.conf import settings
+from django.views.generic import TemplateView
 
 from .api import ListApi, CardApi
 
 
 urlpatterns = [
-    url(r'^$', views.scrumboard, name='scrumboard'),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^lists$', ListApi.as_view()),
     url(r'^cards$', CardApi.as_view()),
     url(r'^signup/$', views.signup, name='signup'),

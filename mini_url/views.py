@@ -138,7 +138,3 @@ class UserProfileEditView(UpdateView):
 
 	def get_success_url(self):
 		return reverse('profile', kwargs={'slug': self.request.user})
-
-
-def scrumboard(request):
-    return render(request, 'index.html')
