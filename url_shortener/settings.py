@@ -14,6 +14,7 @@ import sendgrid
 import os
 from sendgrid.helpers.mail import *
 
+from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
