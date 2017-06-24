@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 FB_APP_ID = os.environ.get('FB_APP_ID');
 FB_SECRET = os.environ.get('FB_SECRET');
 
-LOGIN_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'scrumboard'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'

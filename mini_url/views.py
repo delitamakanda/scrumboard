@@ -141,4 +141,4 @@ class UserProfileEditView(UpdateView):
 
 
 def scrumboard(request):
-    pass
+    return render(request, 'index.html')
