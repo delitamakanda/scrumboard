@@ -14,7 +14,6 @@ import sendgrid
 import os
 from sendgrid.helpers.mail import *
 
-from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -154,7 +153,7 @@ STATICFILES_DIRS = (
 FB_APP_ID = os.environ.get('FB_APP_ID');
 FB_SECRET = os.environ.get('FB_SECRET');
 
-LOGIN_REDIRECT_URL = reverse_lazy('profile')
+LOGIN_REDIRECT_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
