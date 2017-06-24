@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles/semantic.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/app.css' %}">
     <meta name="google-site-verification" content="R5iJgRqpxh230ryqlo3_4dtv65zdygec-7MapJDoOLw" />
     <meta name="description" content="{% trans 'Raccourcisseur d urls pour tous types de sites' %} " />
@@ -17,7 +16,7 @@
       <div class="ui fixed inverted menu">
           <div class="ui container">
             <a href="/" class="header item">
-              Shorten
+              Scrumboard
             </a>
             {% if request.user.is_authenticated %}
             <a href="{% url 'profile' slug=user.username %}" class="item">{% trans "Bonjour," %} {{ user.username }} !</a>
@@ -29,13 +28,9 @@
           </div>
       </div>
 
-      <div class="ui main text container">
-        <h1 class="ui header">{% trans "Raccourcisseur d'urls" %}</h1>
-        <p>{% trans "Raccourcisser vos urls grâce à notre service" %}</p>
-      </div>
 
       <main>
-        <div class="ui container">
+        <div>
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- leaderboard-company -->
 <ins class="adsbygoogle"
@@ -50,33 +45,14 @@
 <br>
           {% block content %}{% endblock %}
 
-          <br>
-          <br>
 
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- leaderboard-company -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-3642405517149016"
-     data-ad-slot="3772616037"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
         </div>
       </main>
 
-     <footer class="ui inverted vertical footer segment">
-       <div class="ui center aligned container">
-         <div class="ui inverted section divider"></div>
-         <div class="ui horizontal inverted small divided link list">
-           <a href="{% url 'privacy-policies' %}" class="item">{% trans "politique de confidentialité " %}</a>
-           <a href=""class="item">Shorten {% trans "Tous droits réservés " %}.</a>
-         </div>
-       </div>
-     </footer>
 
     <script src="{% static 'scripts/vendor/jquery.js' %}"></script>
-    <script src="{% static 'scripts/semantic.min.js' %}"></script>
+    <script src="{% static 'scripts/vendor/angular.min.js' %}"></script>
     <script src="{% static 'scripts/app.js' %}"></script>
 
 <script>

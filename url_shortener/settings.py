@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'rest_framework',
     'mini_url',
 ]
 
