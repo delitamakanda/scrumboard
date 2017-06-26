@@ -18,6 +18,24 @@ DESCRIPTION_SELECTOR = '.item-description'
 METRO_SELECTOR = '.item-metro .label'
 PRICE_SELECTOR = '.price'
 
+def process_listings_page(link)
+  try:
+    res = requests.get(link)
+    dom = Bs(res.text, 'lxml')
+    
+    details_urls = [
+      URL_DOMAIN + btn.get('href')
+      for btn in dom.select('.btn-details')
+    ]
+    
+    return [
+      process_listing(listing_details_url)
+      for listing_details_url in details_urls
+    ]
+  except Exception as e:
+    print(e)
+
+
 try:
   gc = pygsheets.authorize(service_file='credentials.json')
   
