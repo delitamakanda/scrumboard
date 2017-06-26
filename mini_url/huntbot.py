@@ -27,6 +27,23 @@ try:
   dom = Bs(res.text, 'lxml')
   
   
+  links = [SEARCH_PAGE] + [
+    URL_DOMAIN + a.get('href')
+    for a in dom.select(PAGINATION_SELECTOR)
+  ]
+  
+  links = []
+  
+  links.append[SEARCH_PAGE]
+  
+  paginated_links = dom.select(PAGINATION_SELECTOR)
+  
+  for a in paginated_links:
+    relative_url = a.get('href')
+    absolute_url = a.get('href')
+    links.append(absolute_url)
+  
+  
 except Exception as e:
   print(e)
   
