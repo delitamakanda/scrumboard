@@ -23,10 +23,20 @@ def process_listings_page(link)
     res = requests.get(link)
     dom = Bs(res.text, 'lxml')
     
-    details_urls = [
-      URL_DOMAIN + btn.get('href')
-      for btn in dom.select('.btn-details')
-    ]
+    #details_urls = [
+      #URL_DOMAIN + btn.get('href')
+      #for btn in dom.select('.btn-details')
+    #]
+    
+    details_urls = []
+    
+    details_btn = dom.select('.btn-details')
+    
+    for btn in list_of_details_btn:
+      details_relative_url = btn.get('href')
+      details_absolute_url = URL_DOMAIN + details_relative_url
+      
+      details_urls.append(details_absolute_url)
     
     return [
       process_listing(listing_details_url)
@@ -34,6 +44,55 @@ def process_listings_page(link)
     ]
   except Exception as e:
     print(e)
+    
+    
+def process_listing(listing):
+  res = requests.get(listing)
+  dom = Bs(res.text, 'lxml')
+  
+  specs = ' / '.join([
+    clean_spaces(
+      clean_markup(
+        str(li).replace('<strong>': ': ').lower()
+      )
+    )
+    for li in dom.select(SPECS_SELECTOR)[0].select('li')
+  ])
+  
+  metro = ', '.join([
+    clean_markup(elm.get_text())
+    for elm in dom.select(METRO_SELECTOR)
+  ])
+  
+  location = dom.select(GEOLOC_SELECTOR)[0].h2.text
+  
+  description_body = dom.select(DESCRIPTION_SELECTOR)[0]
+  description = clean_spaces(description_body.get_text())
+  
+  price = dom.select(PRICE_SELECTOR)[0].text
+  
+  return {
+    "specs": specs,
+    "location": location,
+    "description": description,
+    "metro": metro,
+    "url": listing,
+    "price": price
+  }
+
+
+def clean_special_chars(string):
+  """ remove special characters """
+  return string.replace('²', '2').replace('€', 'e')
+
+
+def clean_markup(string):
+  string = clean_special_chars(string)
+  return re.sub(r'<[^>]*>', '', string)
+
+def clean_spaces(string):
+  string = re.sub('\n|\r|\r|\t', ' ', string)
+  return re.sub('\s{2,}', ' ', string).strip()
 
 
 try:
@@ -60,6 +119,16 @@ try:
     relative_url = a.get('href')
     absolute_url = a.get('href')
     links.append(absolute_url)
+    
+  urls_stored = sheet.get_col(5)
+  
+  for link in links:
+    for ls in process_listings_page(link):
+      if ls['url'] not in urls_stored:
+        sheet.insert_rows(row=0, values=[
+          ls['specs'], ls['price'], ls['location'], 
+          ls['description'], ls['metro'], ls['url'],
+        ])
   
   
 except Exception as e:
