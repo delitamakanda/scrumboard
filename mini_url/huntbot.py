@@ -17,3 +17,18 @@ SPECS_SELECTOR = '.item-summary'
 DESCRIPTION_SELECTOR = '.item-description'
 METRO_SELECTOR = '.item-metro .label'
 PRICE_SELECTOR = '.price'
+
+try:
+  gc = pygsheets.authorize(service_file='credentials.json')
+  
+  sheet = gc.open_by_url(SPREADSHEET_URL).sheet1
+  
+  res = requests.get(SEARCH_PAGE)
+  dom = Bs(res.text, 'lxml')
+  
+  
+except Exception as e:
+  print(e)
+  
+  
+
