@@ -1,4 +1,4 @@
-# url_shortner
+# scrumboard app
 scrumboard app
 
 # circleci
