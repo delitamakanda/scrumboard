@@ -13,5 +13,3 @@ sendgrid
 djangorestframework
 markdown
 django-filter
-beautifulsoup4
-pygsheets
