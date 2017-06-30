@@ -12,12 +12,15 @@
     <h3>{{ list.name }} </h3>
 
     <ul>
-        <li ng-repeat="card in list.cards">{{ card.title }}</li>
+        <li ng-repeat="card in list.cards">
+            <scrumboard-card></scrumboard-card>
+        </li>
     </ul>
     <input type="text" ng-model="new_title" />
     <button ng-click="add(list, new_title)">+</button>
     </div>
 </div>
 {% endverbatim %}
+
 
 {% endblock %}
