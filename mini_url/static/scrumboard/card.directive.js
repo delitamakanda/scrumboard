@@ -16,6 +16,10 @@
                         $scope.card
                     );
                 };
+
+                $scope.modelOptions = {
+                    debounce: 500
+                };
             }]
         };
     }
