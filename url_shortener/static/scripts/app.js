@@ -19,10 +19,7 @@
                     });
             };
 
-            $scope.login = function() {
-                $http.post('/auth_api/login/',
-                    { username: 'root', password: 'makSix2017'});
-            };
+            
 
             $scope.data = [];
             $http.get('/scrumboard/lists').then(function(response){

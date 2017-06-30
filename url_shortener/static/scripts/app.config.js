@@ -13,7 +13,8 @@
                 controller: 'ScrumboardController'
             })
             .when('/login', {
-                templateUrl: '/static/components/login.html'
+                templateUrl: '/static/components/login.html',
+                controller: 'LoginController'
             })
             .otherwise('/')
     }
