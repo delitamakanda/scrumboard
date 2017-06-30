@@ -1,4 +1,4 @@
-{% extends 'scrumboard/base.html'%}
+{% extends 'base.html'%}
 {% block title %} Scrumboard {% endblock %}
 {% block content %}
 
@@ -8,6 +8,8 @@
 
 {% verbatim %}
 <div ng-controller='ScrumboardController'>
+    <button ng-click="login()">Login</button>
+    <a href="/auth_api/logout">Logout</a>
     <div ng-repeat="list in data">
     <h3>{{ list.name }} </h3>
 

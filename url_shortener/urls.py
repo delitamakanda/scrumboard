@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.decorators.csrf import ensure_csrf_cookie
 from mini_url.views import jokebot, UserProfileDetailView, UserProfileEditView, signup, account_activation_sent, activate
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required as auth
@@ -25,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^scrumboard/', include('mini_url.urls')),
     url(r'^auth_api/', include('auth_api.urls')),
-    url(r'^$', TemplateView.as_view(template_name='scrumboard/index.html')),
+    url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name='index.html'))),
     url(r'^signup/$', signup, name='signup'),
     url(r'^password_reset/$', auth_views.password_reset, {'template_name': 'mini_url/registration/password_reset_form.html'}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done, {'template_name': 'mini_url/registration/password_reset_done.html'}, name='password_reset_done'),
