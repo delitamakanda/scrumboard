@@ -1,4 +1,33 @@
-<div class="card">
+<div class="card" ng-hide="edit" ng-click="edit=true">
     <h4> {{ card.title }}</h4>
     <span>{{ card.description }}</span>
+    <div>
+        <div>{{ card.extra }}</div>
+        <div>{{ card.story_points }}</div>
+        <div>{{ card.business_value }}</div>
+    </div>
+</div>
+
+<div class="card" ng-show="edit">
+    <div class="">
+        <label>Title:</label>
+        <input type="text" ng-model="card.title" ng-change="update()" />
+    </div>
+    <div class="">
+        <label>Description:</label>
+        <textarea ng-model="card.description" ng-change="update()" placeholder="Enter description..."></textarea>
+    </div>
+    <div class="">
+        <label>Extra:</label>
+        <input type="text" ng-model="card.extra" ng-change="update()" />
+    </div>
+    <div class="">
+        <label>Story points:</label>
+        <input type="text" ng-model="card.story_points" ng-change="update()" />
+    </div>
+    <div class="">
+        <label>Business value:</label>
+        <input type="text" ng-model="card.business_value" ng-change="update()" />
+    </div>
+    <button ng-click="edit=false">Close</button>
 </div>
