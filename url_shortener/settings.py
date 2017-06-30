@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'rest_framework',
     'mini_url',
+    'auth_api',
 ]
 
 MIDDLEWARE = [
