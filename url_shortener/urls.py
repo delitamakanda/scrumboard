@@ -24,7 +24,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^scrumboard/', include('mini_url.urls')),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^$', TemplateView.as_view(template_name='scrumboard/index.html')),
     url(r'^signup/$', signup, name='signup'),
     url(r'^password_reset/$', auth_views.password_reset, {'template_name': 'mini_url/registration/password_reset_form.html'}, name='password_reset'),
     url(r'^password_reset/done/$', auth_views.password_reset_done, {'template_name': 'mini_url/registration/password_reset_done.html'}, name='password_reset_done'),
