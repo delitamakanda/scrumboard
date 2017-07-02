@@ -1,8 +1,16 @@
 <div ng-repeat="list in data">
 <h3>{{ list.name }} </h3>
+<input type="text" ng-model="filterBy" />
+<select ng-model="sortBy">
+    <option value="title">Title</option>
+    <option value="story_points">Story points</option>
+    <option value="business_value">Business value</option>
+</select>
+<input type="checkbox" ng-model="reverse" />
+
 
 <ul>
-    <li ng-repeat="card in list.cards">
+    <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
         <scrumboard-card></scrumboard-card>
     </li>
 </ul>
