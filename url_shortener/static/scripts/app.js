@@ -19,6 +19,19 @@
                     });
             };
 
+            $scope.addList() = function() {
+
+                console.log($scope.list.name);
+
+                $http.post('/scrumboard/lists/')
+                    .then(function(response){
+                        $scope.list.name.push(response)
+                    }, function(){
+                        console.log('error');
+                    });
+
+            };
+
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
             $scope.logout = Login.logout;

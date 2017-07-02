@@ -6,3 +6,4 @@ scrumboard app
 
 # docs
 [helper account](https://thinkster.io/django-angularjs-tutorial)
+[helper account 2](http://blog.kevinastone.com/getting-started-with-django-rest-framework-and-angularjs.html)
