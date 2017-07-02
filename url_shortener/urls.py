@@ -36,6 +36,5 @@ urlpatterns = [
     url(r'^user/(?P<slug>\w+)/$', UserProfileDetailView.as_view(), name='profile'),
     url(r'^edit_profile/$', auth(UserProfileEditView.as_view()), name='edit_profile'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', activate, name='activate'),
-    url(r'^privacy-policies/$', TemplateView.as_view(template_name='mini_url/privacy-policies.html'), name="privacy-policies"),
     url(r'^donut/?$', jokebot.as_view(), name='donut_bot'),
 ]
