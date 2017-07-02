@@ -1,5 +1,13 @@
 <div ng-repeat="list in data">
 <h3>{{ list.name }} </h3>
+
+<span>
+    <button ng-click="showFilters=!showFilters">
+        {{ showFilters ? "Hide": "Show" }} filters
+    </button>
+</span>
+
+<div class="filters" ng-show="showFilters">
 <input type="text" ng-model="filterBy" />
 <select ng-model="sortBy">
     <option value="title">Title</option>
@@ -7,7 +15,7 @@
     <option value="business_value">Business value</option>
 </select>
 <input type="checkbox" ng-model="reverse" />
-
+</div>
 
 <ul>
     <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
