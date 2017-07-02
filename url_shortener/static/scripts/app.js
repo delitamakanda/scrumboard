@@ -9,7 +9,7 @@
             $scope.add = function(list, title) {
                 var card = {
                     list: list.id,
-                    title: title
+                    title: title,
                 };
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
@@ -25,6 +25,7 @@
             $scope.sortBy='story_points';
             $scope.reverse=true;
             $scope.showFilters=false;
+
 
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
