@@ -8,27 +8,30 @@
     </div>
 </div>
 
-<div class="card" ng-show="edit">
+<div class="card" ng-show="edit" ng-model-options="modelOptions">
     <div class="">
         <label>Title:</label>
         <input type="text" ng-model="card.title" ng-change="update()" />
     </div>
     <div class="">
         <label>Description:</label>
-        <textarea ng-model="card.description" ng-model-options="modelOptions" ng-change="update()" placeholder="Enter description..."></textarea>
+        <textarea ng-model="card.description" ng-change="update()" placeholder="Enter description..."></textarea>
     </div>
     <div class="">
         <label>Extra:</label>
-        <input type="text" ng-model="card.extra" ng-model-options="modelOptions" ng-change="update()" />
+        <input type="text" ng-model="card.extra" ng-change="update()" />
     </div>
     <div class="">
         <label>Story points:</label>
-        <input type="text" ng-model-options="modelOptions" ng-model="card.story_points" ng-change="update()" />
+        <input type="text" ng-model="card.story_points" ng-change="update()" />
     </div>
     <div class="">
         <label>Business value:</label>
-        <input type="text" ng-model-options="modelOptions" ng-model="card.business_value" ng-change="update()" />
+        <input type="text" ng-model="card.business_value" ng-change="update()" />
     </div>
     <button ng-click="edit=false">Close</button>
     <button ng-click="delete()">Delete card</button>
+
+    <select ng-options="list as list.name for list in data" ng-model="destList"></select>
+    <button ng-click="move()">Move</button>
 </div>
