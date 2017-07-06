@@ -25,7 +25,7 @@
 
                 $http.post('/scrumboard/lists/')
                     .then(function(response){
-                        $scope.list.name.push(response)
+                        $scope.list.push({ name: $scope.list.name})
                     }, function(){
                         console.log('error');
                     });
