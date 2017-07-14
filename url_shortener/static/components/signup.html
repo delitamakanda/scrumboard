@@ -1,5 +1,5 @@
-<form ng-submit="login()">
-<div>{{ login_error }}</div>
+<form ng-submit="signup()">
+<div>{{ signup_error }}</div>
 <div>
     <label>Username</label>
     <input type="text" ng-model="user.username" />
@@ -8,9 +8,9 @@
     <label>Password</label>
     <input type="password" ng-model="user.password" />
 </div>
-<button type="submit">Login</button>
+<button type="submit">Signup</button>
 </form>
 
 <div>
-    <a href="#!signup">Signup</a>
+    <a href="#!login">Login</a>
 </div>
