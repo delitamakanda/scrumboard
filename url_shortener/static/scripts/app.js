@@ -13,24 +13,25 @@
                 };
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
-                        list.cards.push(response.data);
+                        $location.url('/')
                     }, function(){
                         console.log('error');
                     });
             };
 
-            $scope.addList() = function() {
-
-                console.log($scope.list.name);
-
-                $http.post('/scrumboard/lists/')
-                    .then(function(response){
-                        $scope.list.push({ name: $scope.list.name})
+            $scope.create = function() {
+                var data = {
+                    name: $scope.name,
+                    user: $scope.user
+                };
+                $http.post('/scrumboard/lists/', data)
+                    .then(function(response) {
+                        console.log(response,'yes')
                     }, function(){
                         console.log('error');
                     });
-
             };
+
 
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];

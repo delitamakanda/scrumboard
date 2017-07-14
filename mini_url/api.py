@@ -31,10 +31,9 @@ class ListViewSet(ModelViewSet):
     def dispatch(self, request, *args, **kwargs):
         return super(ListViewSet, self).dispatch(request, *args, **kwargs)
 
-def perform_create(self, serializer):
-    instance = serializer.save(user=self.request.user)
-
-    return super(ListViewSet, self).perform_create(serializer)
+    def perform_create(self, serializer):
+        instance = serializer.save(user=self.request.user)
+        return super(ListViewSet, self).perform_create(serializer)
 
 
 
