@@ -16,6 +16,10 @@
                 templateUrl: '/static/components/login.html',
                 controller: 'LoginController'
             })
+            .when('/success', {
+                templateUrl: '/static/components/success.html',
+                controller: 'ScrumboardController'
+            })
             .otherwise('/')
     }
 
