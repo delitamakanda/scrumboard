@@ -27,7 +27,8 @@
                 .then(function(response) {
                     $location.url('/login')
                 }, function(){
-                    console.log('error');
+                    //console.log('error');
+                    $scope.signup_error="An error occurred or username already taken.";
                 });
 
         }
