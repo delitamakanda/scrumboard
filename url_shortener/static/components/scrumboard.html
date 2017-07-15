@@ -2,7 +2,7 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- leaderboard-company -->
       <ins class="adsbygoogle"
-           style="display:inline-block;width:728px;height:90px;background-color:#858585;"
+           style="display:inline-block;width:728px;height:90px;"
            data-ad-client="ca-pub-3642405517149016"
            data-ad-slot="3772616037"></ins>
       <script>
@@ -10,40 +10,51 @@
       </script>
   </div>
 
-<div>
-    <input type="text" ng-model="name" />
-    <button ng-click="create()">Add list</button>
+  <div class="wrapper-content">
+
+  <div class="text-right">
+      <button ng-click="logout()">Logout</button>
+  </div>
+
+    <form class="form">
+        <div class="fieldset">
+            <label for="">Add a board.</label>
+            <input type="text" ng-model="name" />
+        </div>
+        <div class="fieldset">
+            <button ng-click="create()">Add list</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+
+<div ng-repeat="list in data" class="columns board">
+    <h3>{{ list.name }} </h3>
+
+    <span>
+        <button ng-click="showFilters=!showFilters">
+            {{ showFilters ? "Hide": "Show" }} filters
+        </button>
+    </span>
+
+    <div class="filters" ng-show="showFilters">
+    <input type="text" ng-model="filterBy" />
+    <select ng-model="sortBy">
+        <option value="title">Title</option>
+        <option value="story_points">Story points</option>
+        <option value="business_value">Business value</option>
+    </select>
+    <input type="checkbox" ng-model="reverse" />
+    </div>
+
+    <ul>
+        <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
+            <scrumboard-card></scrumboard-card>
+        </li>
+    </ul>
+    <input type="text" ng-model="new_title" />
+    <button ng-click="add(list, new_title)">+</button>
 </div>
 
-<div ng-repeat="list in data">
-<h3>{{ list.name }} </h3>
-
-<span>
-    <button ng-click="showFilters=!showFilters">
-        {{ showFilters ? "Hide": "Show" }} filters
-    </button>
-</span>
-
-<div class="filters" ng-show="showFilters">
-<input type="text" ng-model="filterBy" />
-<select ng-model="sortBy">
-    <option value="title">Title</option>
-    <option value="story_points">Story points</option>
-    <option value="business_value">Business value</option>
-</select>
-<input type="checkbox" ng-model="reverse" />
-</div>
-
-<ul>
-    <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
-        <scrumboard-card></scrumboard-card>
-    </li>
-</ul>
-<input type="text" ng-model="new_title" />
-<button ng-click="add(list, new_title)">+</button>
-</div>
-
-
-<div>
-    <button ng-click="logout()">Logout</button>
 </div>

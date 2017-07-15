@@ -70,6 +70,23 @@ body {
     padding-right: 10px;
 }
 
+.columns {
+    width: 32%;
+    float: left;
+    margin-right: 1%;
+}
+
+.columns:first-child {
+    margin-right: 0px;
+}
+
+.board {
+    box-shadow: 0px 1px 1px 1px #D4D4D4;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
 .header {
     padding: 15px 10px;
     margin-bottom: 15px;
@@ -81,6 +98,7 @@ body {
 }
 
 .footer {
+    clear: both;
     margin-top: 15px;
     padding: 15px 10px;
     color: hotpink;
@@ -91,6 +109,10 @@ body {
     margin: 0px;
     color: hotpink;
     font-family: 'Fredoka One', cursive;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .text-center {
