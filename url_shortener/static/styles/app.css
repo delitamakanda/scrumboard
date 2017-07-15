@@ -57,12 +57,27 @@ body {
     border-radius: 5px;
 }
 
-.fieldset button {
+.fieldset button:hover,
+.button:hover {
+    background-color: pink;
+    border-bottom: 5px solid hotpink;
+}
+
+.fieldset button,
+.button {
     background-color: hotpink;
     color: #FFF;
     font-size: 20px;
     cursor: pointer;
     border-bottom: 5px solid pink;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 5px 8px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
 }
 
 .wrapper-content {
