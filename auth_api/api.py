@@ -15,7 +15,7 @@ class SignupView(CreateAPIView):
         permissions.AllowAny
     ]
     serializer_class = UserSerializer
-    
+
 
 class LoginView(views.APIView):
 
