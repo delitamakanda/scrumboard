@@ -1,16 +1,45 @@
-<form ng-submit="login()">
-<div>{{ login_error }}</div>
-<div>
-    <label>Username</label>
-    <input type="text" ng-model="user.username" />
+<div class="adsense text-center"
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- leaderboard-company -->
+  <ins class="adsbygoogle"
+       style="display:inline-block;width:728px;height:90px;background-color:#858585;"
+       data-ad-client="ca-pub-3642405517149016"
+       data-ad-slot="3772616037"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </div>
-<div>
-    <label>Password</label>
-    <input type="password" ng-model="user.password" />
-</div>
-<button type="submit">Login</button>
+
+<div class="wrapper-content">
+
+    <div class="text-center">
+        <h2>Login</h2>
+    </div>
+
+<form ng-submit="login()" class="form form-login">
+
+    <div class="fieldset">
+        {{ login_error }}
+    </div>
+
+    <div class="fieldset">
+        <label for="username">Username</label>
+        <input type="text" id="username" ng-model="user.username" />
+    </div>
+
+    <div class="fieldset">
+        <label for="password">Password</label>
+        <input type="password" id="password" ng-model="user.password" />
+    </div>
+    <div class="fieldset">
+        <button type="submit">Login</button>
+    </div>
+
+    <div class="text-center">
+        <p>Or <a href="#!signup">Signup</a> to create an account.</p>
+    </div>
+
 </form>
 
-<div>
-    <a href="#!signup">Signup</a>
+
 </div>
