@@ -2,36 +2,37 @@
     <h4> {{ card.title }}</h4>
     <span>{{ card.description }}</span>
     <div>
-        <div>{{ card.extra }}</div>
-        <div>{{ card.story_points }}</div>
-        <div>{{ card.business_value }}</div>
+        <div>Extra: {{ card.extra }}</div>
+        <div>Story points: {{ card.story_points }}</div>
+        <div>Business value: {{ card.business_value }}</div>
     </div>
 </div>
 
 <div class="card" ng-show="edit" ng-model-options="modelOptions">
-    <div class="">
+    <div class="fieldset">
         <label>Title:</label>
         <input type="text" ng-model="card.title" ng-change="update()" />
     </div>
-    <div class="">
+    <div class="fieldset">
         <label>Description:</label>
         <textarea ng-model="card.description" ng-change="update()" placeholder="Enter description..."></textarea>
     </div>
-    <div class="">
+    <div class="fieldset">
         <label>Extra:</label>
         <input type="text" ng-model="card.extra" ng-change="update()" />
     </div>
-    <div class="">
+    <div class="fieldset">
         <label>Story points:</label>
         <input type="text" ng-model="card.story_points" ng-change="update()" />
     </div>
-    <div class="">
+    <div class="fieldset">
         <label>Business value:</label>
         <input type="text" ng-model="card.business_value" ng-change="update()" />
     </div>
-    <button ng-click="edit=false" class="button">Close</button>
-    <button ng-click="delete()" class="button">Delete card</button>
-
-    <select ng-options="list as list.name for list in data" ng-model="destList"></select>
-    <button ng-click="move()" class="button">Move</button>
+    <div>
+        <button ng-click="edit=false" class="button">Close</button>
+        <button ng-click="delete()" class="button">Delete card</button>
+        <select ng-options="list as list.name for list in data" ng-model="destList"></select>
+        <button ng-click="move()" class="button">Move</button>
+    </div>
 </div>
