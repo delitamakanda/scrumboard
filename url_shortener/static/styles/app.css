@@ -25,6 +25,9 @@ body {
     overflow-y: auto;
     font-family: 'Lato', sans-serif;
     background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+
 }
 
 .form {
@@ -86,10 +89,30 @@ body {
 }
 
 .columns {
-    width: 32%;
     float: left;
     margin-right: 1%;
 }
+
+@media screen and (min-width: 768px) {
+    .columns {
+        width: 19%;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .columns {
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 479px)  {
+    .columns {
+        width: 100%;
+        margin-right: 0px;
+        float: none;
+    }
+}
+
 
 .columns:first-child {
     margin-right: 0px;
