@@ -29,9 +29,9 @@
         <label>Business value:</label>
         <input type="text" ng-model="card.business_value" ng-change="update()" />
     </div>
-    <button ng-click="edit=false">Close</button>
-    <button ng-click="delete()">Delete card</button>
+    <button ng-click="edit=false" class="button">Close</button>
+    <button ng-click="delete()" class="button">Delete card</button>
 
     <select ng-options="list as list.name for list in data" ng-model="destList"></select>
-    <button ng-click="move()">Move</button>
+    <button ng-click="move()" class="button">Move</button>
 </div>

@@ -125,6 +125,26 @@ body {
     padding: 10px;
 }
 
+.add-task {
+    display: table;
+    width: 100%;
+}
+
+.add-task input[type="text"],
+.add-task .button {
+    display: table-cell;
+    height: 38px;
+    border-radius: 0px;
+    border: 0px none;
+    vertical-align: middle;
+}
+
+.add-task input[type="text"] {
+    background-color: #E5E5E5;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .header {
     padding: 15px 10px;
     margin-bottom: 15px;
@@ -133,6 +153,12 @@ body {
 
 .header > a:hover {
     text-decoration: none;
+}
+
+.tasks {
+    padding-left: 15px;
+    list-style-type: decimal;
+    list-style-position: outside;
 }
 
 .footer {

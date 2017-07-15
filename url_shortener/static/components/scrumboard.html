@@ -48,13 +48,16 @@ data-ad-slot="3772616037"></ins>
             <input type="checkbox" ng-model="reverse" />
         </div>
 
-        <ul>
+        <ul class="tasks">
             <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
                 <scrumboard-card></scrumboard-card>
             </li>
         </ul>
-        <input type="text" ng-model="new_title" />
-        <button ng-click="add(list, new_title)" class="button">+</button>
+
+        <div class="add-task">
+            <input type="text" ng-model="new_title" />
+            <button ng-click="add(list, new_title)" class="button">+</button>
+        </div>
     </div>
 
 </div>
