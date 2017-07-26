@@ -6,6 +6,7 @@
         ['$scope', '$http', '$location', 'Login', ScrumboardController]);
 
         function ScrumboardController($scope, $http, $location, Login){
+            //add card to the list
             $scope.add = function(list, title) {
                 var card = {
                     list: list.id,
@@ -18,7 +19,8 @@
                         console.log('error');
                     });
             };
-
+            
+            //create a new list
             $scope.create = function() {
                 var data = {
                     name: $scope.name,
@@ -40,7 +42,7 @@
             $scope.reverse=true;
             $scope.showFilters=false;
 
-
+            // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
             });
