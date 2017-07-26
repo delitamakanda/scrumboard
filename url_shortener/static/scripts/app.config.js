@@ -18,7 +18,7 @@
             })
             .when('/signup', {
                 templateUrl: '/static/components/signup.html',
-                controller: 'LoginController'
+                controller: 'SignupController'
             })
             .when('/success', {
                 templateUrl: '/static/components/success.html',
