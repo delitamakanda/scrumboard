@@ -2,7 +2,7 @@
 scrumboard app
 
 # circleci
-[![CircleCI](https://circleci.com/gh/delitamakanda/scrumboard-app/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/scrumboard-app/tree/master)
+[![CircleCI](https://circleci.com/gh/delitamakanda/scrumy-app/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/scrumy-app/tree/master)
 
 # docs
 * [helper account](https://thinkster.io/django-angularjs-tutorial)
