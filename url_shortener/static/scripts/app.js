@@ -33,6 +33,11 @@
                         console.log('error');
                     });
             };
+            
+            //wip delete a list
+            $scope.deleteList = function() {
+                
+            };
 
 
             Login.redirectedIfNotLoggedIn();
