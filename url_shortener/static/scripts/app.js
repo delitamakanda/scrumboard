@@ -35,8 +35,16 @@
             };
             
             //wip delete a list
-            $scope.deleteList = function() {
-                
+            $scope.deleteList = function(list) {
+                var list_pk = {
+                    list: list.id,
+                };
+                $http.delete('/scrumboard/lists/', list_pk)
+                    .then(function(response){
+                        $location.url('/')
+                    }, function(){
+                        console.log('error');
+                    });
             };
 
 
