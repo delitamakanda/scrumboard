@@ -28,7 +28,7 @@
 
                 $http.post('/scrumboard/lists/', data)
                     .then(function(response) {
-                        $location.url('/success')
+                        $location.url('/')
                     }, function(){
                         console.log('error');
                     });
