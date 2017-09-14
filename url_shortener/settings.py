@@ -10,11 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-import sendgrid
 import os
-from sendgrid.helpers.mail import *
-
-from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'url_shortener.profile_middleware',
 ]
 
 ROOT_URLCONF = 'url_shortener.urls'
@@ -135,14 +130,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-LANGUAGES = (
-    ('fr-fr', _('French')),
-    ('en-US', _('English'))
-)
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
@@ -153,19 +140,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-FB_APP_ID = os.environ.get('FB_APP_ID');
-FB_SECRET = os.environ.get('FB_SECRET');
-
 LOGIN_REDIRECT_URL = 'scrumboard'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.sendgrid.net'
-DEFAULT_FROM_EMAIL = 'Shorten Team <delita.makanda@gmail.com>'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-
 
 ADMINS = [
     ('Delita', 'delita.makanda@gmail.com')
