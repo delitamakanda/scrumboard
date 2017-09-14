@@ -142,6 +142,3 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = 'scrumboard'
 
-ADMINS = [
-    ('Delita', 'delita.makanda@gmail.com')
-]
