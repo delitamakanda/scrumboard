@@ -37,10 +37,16 @@ class ListViewSet(ModelViewSet):
         instance = serializer.save(user=self.request.user)
         return super(ListViewSet, self).perform_create(serializer)
     
-    #def delete(self):
-        #pass
-
-
+    def perform_destroy(self, instance):
+        if instance.type == 'userdefined':
+            instance.delete()
+        else:
+            serializer = ListSerializer(instance, data=self.request.data)
+            serializer.is_valid()
+            serializer.save(checked=False)
+            serializer.save(preview_text='')
+            serializer.save(preview_name='')
+            serializer.save(content={"": ""})
 
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
