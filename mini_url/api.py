@@ -27,6 +27,7 @@ class ListViewSet(ModelViewSet):
         #if self.request.method in permissions.SAFE_METHODS:
             #return (permissions.AllowAny(),)
         #return (permissions.IsAuthenticated(), IsUserOfPost(),)
+        
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super(ListViewSet, self).dispatch(request, *args, **kwargs)
