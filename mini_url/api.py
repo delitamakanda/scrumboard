@@ -37,8 +37,8 @@ class ListViewSet(ModelViewSet):
         instance = serializer.save(user=self.request.user)
         return super(ListViewSet, self).perform_create(serializer)
     
-    def delete(self):
-        pass
+    #def delete(self):
+        #pass
 
 
 
