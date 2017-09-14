@@ -7,6 +7,7 @@ from rest_framework.mixins import (
     ListModelMixin,
     RetrieveModelMixin,
     UpdateModelMixin,
+    DeleteModelMixin,
 )
 
 from .serializers import ListSerializer, CardSerializer, UsersSerializer
