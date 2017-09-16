@@ -51,12 +51,26 @@
                 }
             };
 
+            //show hide popin
+            $scope.addBoard = function(key, index) {
+                $scope.showAddBoard=true;
+                $scope.popin = {
+                    //"top": event.currentTarget.offsetTop + "px",
+                    //"left": event.currentTarget.clientWidth + 10 + "px",
+                }
+            }
+
+            $scope.hideBoard = function() {
+                $scope.showAddBoard=false;
+            }
+
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
             $scope.logout = Login.logout;
             $scope.sortBy='story_points';
             $scope.reverse=true;
             $scope.showFilters=false;
+            $scope.showAddBoard=false;
 
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){

@@ -4,7 +4,7 @@
     </nav>
 
     <nav class="navbar board">
-        <a href="#">Add list</a>
+        <button ng-click="addBoard()" class="button">+</button>
         <button ng-click="logout()" class="button">Logout</button>
     </nav>
 
@@ -48,11 +48,12 @@
     </div>
 </div>
 
-<div class="add-board">
+<div class="add-board" ng-show="showAddBoard" ng-style="popin">
     <div class="content">
+        <button class="button" ng-click="hideBoard()">x</button>
         <label for="">Add a board : </label>
         <input type="text" ng-model="name" />
         <button ng-click="create()">Add list</button>
     </div>
 </div>
-<div class="overlay"></div>
+<div class="overlay" ng-show="showAddBoard"></div>
