@@ -3,9 +3,9 @@
 
     angular.module('scrumboard', ['ngRoute'])
         .controller('ScrumboardController', ScrumboardController,
-        ['$scope', '$http', '$location', 'Login', ScrumboardController]);
+        ['$scope', '$http', '$location', '$window', 'Login', ScrumboardController]);
 
-        function ScrumboardController($scope, $http, $location, Login){
+        function ScrumboardController($scope, $http, $location, $window, Login){
             //add card to the list
             $scope.add = function(list, title) {
                 var card = {
@@ -19,7 +19,7 @@
                         console.log('error');
                     });
             };
-            
+
             //create a new list
             $scope.create = function() {
                 var data = {
@@ -28,12 +28,13 @@
 
                 $http.post('/scrumboard/lists/', data)
                     .then(function(response) {
-                        $location.url('/')
+                        $location.url('/');
+                        $window.location.reload();
                     }, function(){
                         console.log('error');
                     });
             };
-            
+
             //wip delete a list
             $scope.deleteList = function(list) {
                 var list_pk = {
