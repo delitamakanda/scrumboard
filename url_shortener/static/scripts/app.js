@@ -51,13 +51,11 @@
                 }
             };
 
+
+
             //show hide popin
             $scope.addBoard = function(key, index) {
                 $scope.showAddBoard=true;
-                $scope.popin = {
-                    //"top": event.currentTarget.offsetTop + "px",
-                    //"left": event.currentTarget.clientWidth + 10 + "px",
-                }
             }
 
             $scope.hideBoard = function() {
@@ -71,6 +69,9 @@
             $scope.reverse=true;
             $scope.showFilters=false;
             $scope.showAddBoard=false;
+            $scope.currentUser = JSON.parse(localStorage.currentUser);
+
+            console.log($scope.currentUser);
 
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){

@@ -6,6 +6,8 @@ from rest_framework.generics import CreateAPIView
 
 from rest_framework import status, views, permissions
 from rest_framework.response import Response
+from django.shortcuts import HttpResponse
+import json
 
 from .serializers import UserSerializer
 
@@ -41,3 +43,13 @@ class LogoutView(views.APIView):
     def get(self, request):
         logout(request)
         return Response({}, status=status.HTTP_200_OK)
+
+
+
+class CheckoutUser(views.APIView):
+    
+    def check_login(request):
+        if request.user.is_authenticated():
+            return HttpResponse(json.dumps({'result': {'logged': True}, 'user': request.user.username }), content_type="application/json")
+        else:
+            return HttpResponse(json.dumps({'result': {'logged': False}}), content_type="application/json")

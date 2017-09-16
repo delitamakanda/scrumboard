@@ -9,7 +9,7 @@
         $scope.login = function () {
             Login.login($scope.user)
                 .then(function() {
-                    $location.url('/')
+                    $location.url('/');
                 },
                 function() {
                     $scope.login_error="Invalid username/password combination";
@@ -20,5 +20,6 @@
         if (Login.isLoggedIn()) {
             $location.url('/');
         }
+
     }
 })();

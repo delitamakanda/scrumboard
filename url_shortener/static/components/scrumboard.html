@@ -4,6 +4,7 @@
     </nav>
 
     <nav class="navbar board">
+        <span ng-if="currentUser">Welcome,  {{ currentUser.username }} ! </span>
         <button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i></button>
         <button ng-click="logout()" class="button">Logout</button>
     </nav>
