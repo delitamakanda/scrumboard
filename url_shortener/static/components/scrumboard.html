@@ -1,66 +1,58 @@
-<div class="adsense text-center">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- leaderboard-company -->
-<ins class="adsbygoogle"
-style="display:inline-block;width:728px;height:90px;"
-data-ad-client="ca-pub-3642405517149016"
-data-ad-slot="3772616037"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+<div class="ui">
+    <nav class="navbar app">
+        <h1>Scrumy</h1>
+    </nav>
 
-<div class="wrapper-content">
-
-    <div class="text-right">
+    <nav class="navbar board">
+        <a href="#">Add list</a>
         <button ng-click="logout()" class="button">Logout</button>
-    </div>
+    </nav>
 
-    <form class="form">
-        <div class="fieldset">
-            <label for="">Add a board.</label>
-            <input type="text" ng-model="name" />
-        </div>
-        <div class="fieldset">
-            <button ng-click="create()">Add list</button>
-        </div>
-    </form>
+    <div class="lists">
 
-    <br>
-    <br>
+        <div ng-repeat="list in data" class="list">
+            <header>
+                <button ng-click="confirmDelete(list)">X</button>
 
-    <div ng-repeat="list in data" class="columns board">
+                <button ng-click="showFilters=!showFilters" class="button">
+                    {{ showFilters ? "Hide": "Show" }} filters
+                </button>
 
-        <a href="#" ng-click="confirmDelete(list)">X</a>
+                <div class="filters" ng-show="showFilters">
+                    <input type="text" ng-model="filterBy" />
+                    <select ng-model="sortBy">
+                        <option value="title">Title</option>
+                        <option value="story_points">Story points</option>
+                        <option value="business_value">Business value</option>
+                    </select>
+                    <input type="checkbox" ng-model="reverse" />
+                </div>
 
-        <h3>{{ list.name }} </h3>
+                <h3>{{ list.name }} </h3>
+            </header>
 
-        <span>
-            <button ng-click="showFilters=!showFilters" class="button">
-                {{ showFilters ? "Hide": "Show" }} filters
-            </button>
-        </span>
+            <ul>
+                <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
+                    <scrumboard-card></scrumboard-card>
+                </li>
+            </ul>
 
-        <div class="filters" ng-show="showFilters">
-            <input type="text" ng-model="filterBy" />
-            <select ng-model="sortBy">
-                <option value="title">Title</option>
-                <option value="story_points">Story points</option>
-                <option value="business_value">Business value</option>
-            </select>
-            <input type="checkbox" ng-model="reverse" />
-        </div>
-
-        <ul class="tasks">
-            <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
-                <scrumboard-card></scrumboard-card>
-            </li>
-        </ul>
-
-        <div class="add-task">
-            <input type="text" ng-model="new_title" />
-            <button ng-click="add(list, new_title)" class="button">+</button>
+            <footer class="add-task">
+                <input type="text" autocomplete="false" ng-model="new_title" />
+                <button ng-click="add(list, new_title)" class="button">+</button>
+            </footer>
         </div>
     </div>
-
+    <div class="footer text-center">
+        Copyright (c) 2017 - Copyright Scrumy - All Rights Reserved.
+    </div>
 </div>
+
+<div class="add-board">
+    <div class="content">
+        <label for="">Add a board : </label>
+        <input type="text" ng-model="name" />
+        <button ng-click="create()">Add list</button>
+    </div>
+</div>
+<div class="overlay"></div>
