@@ -15,41 +15,34 @@
 <body ng-app="scrumboard">
 
 
-<div class="header">
-    <a href="#!"><h1 class="title">Scrumy</h1></a>
-</div>
-
-<main>
-
-<ng-view></ng-view>
-
-</main>
-
-<div class="footer text-center">
-    Copyright (c) 2017 - Copyright Scrumy - All Rights Reserved.
-</div>
+    <ng-view></ng-view>
 
 
-<script src="{% static 'scripts/vendor/jquery.js' %}"></script>
-<script src="{% static 'scripts/vendor/angular.min.js' %}"></script>
-<script src="{% static 'scripts/vendor/angular-route.min.js'%}"></script>
-<script src="{% static 'scripts/app.js' %}"></script>
-<script src="{% static 'scripts/app.config.js' %}"></script>
-<script src="{% static 'scripts/login.controller.js' %}"></script>
-<script src="{% static 'scripts/signup.controller.js' %}"></script>
-<script src="{% static 'scripts/login.service.js' %}"></script>
-<script src="{% static 'scripts/card.directive.js' %}"></script>
+    <div class="footer text-center">
+        Copyright (c) 2017 - Copyright Scrumy - All Rights Reserved.
+    </div>
 
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script src="{% static 'scripts/vendor/jquery.js' %}"></script>
+    <script src="{% static 'scripts/vendor/angular.min.js' %}"></script>
+    <script src="{% static 'scripts/vendor/angular-route.min.js'%}"></script>
+    <script src="{% static 'scripts/app.js' %}"></script>
+    <script src="{% static 'scripts/app.config.js' %}"></script>
+    <script src="{% static 'scripts/login.controller.js' %}"></script>
+    <script src="{% static 'scripts/signup.controller.js' %}"></script>
+    <script src="{% static 'scripts/login.service.js' %}"></script>
+    <script src="{% static 'scripts/card.directive.js' %}"></script>
 
-ga('create', 'UA-46115386-2', 'auto');
-ga('send', 'pageview');
 
-</script>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46115386-2', 'auto');
+    ga('send', 'pageview');
+
+    </script>
 </body>
 </html>
