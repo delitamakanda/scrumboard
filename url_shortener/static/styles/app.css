@@ -1,22 +1,7 @@
 * {box-sizing: border-box;}
 h1, h2, h3, h4, h5 { margin: 0px; padding: 0px; }
-
-body {
-    margin: 0;
-    font-family: 'Tahoma', Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.3em;
-}
-
-.ui {
-    height:  100vh;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-template-rows:  40px 50px 1fr;
-    grid-template-rows: 40px 50px 1fr;
-    background-color: #0079bf;
-    color: #eee;
-}
+body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-height: 1.3em; position: relative;}
+.ui { height:  100vh;display: -ms-grid; display: grid;-ms-grid-template-rows:  40px 50px 1fr; grid-template-rows: 40px 50px 1fr;background-color: #0079bf; color: #eee;}
 
 .navbar {padding-left: 10px;display: flex;align-items: center;}
 .navbar.app {background-color: #0067a3;font-size: 1.5rem;}
@@ -33,7 +18,9 @@ body {
 .list ul li { background: #fff; padding: 10px; border-radius: 3px; box-shadow: 0 1px 1px rgba(0,0,0,0.1);}
 .list ul li:not(:last-child) {margin-bottom: 10px;}
 
-ul { max-height: calc(100% - 36px - 36px);}
+.add-board { position: absolute; top: 0; left: 0; display: none; z-index: 89; background-color: #e2e4e6;}
+.add-board .content {padding: 20px 15px; border-radius: 3px; }
+.overlay { display: none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 88;}
 
 .text-center {text-align: center;}
 .text-left { text-align: left;}

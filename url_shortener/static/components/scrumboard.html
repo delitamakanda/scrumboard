@@ -4,7 +4,7 @@
     </nav>
 
     <nav class="navbar board">
-        <a href="#!add-list">Add list</a>
+        <a href="#">Add list</a>
         <button ng-click="logout()" class="button">Logout</button>
     </nav>
 
@@ -43,4 +43,16 @@
             </footer>
         </div>
     </div>
+    <div class="footer text-center">
+        Copyright (c) 2017 - Copyright Scrumy - All Rights Reserved.
+    </div>
 </div>
+
+<div class="add-board">
+    <div class="content">
+        <label for="">Add a board : </label>
+        <input type="text" ng-model="name" />
+        <button ng-click="create()">Add list</button>
+    </div>
+</div>
+<div class="overlay"></div>
