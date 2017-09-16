@@ -71,7 +71,6 @@
             $scope.showAddBoard=false;
             $scope.currentUser = JSON.parse(localStorage.currentUser);
 
-            console.log($scope.currentUser);
 
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){
