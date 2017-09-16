@@ -4,7 +4,7 @@
     </nav>
 
     <nav class="navbar board">
-        <button ng-click="addBoard()" class="button">+</button>
+        <button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i></button>
         <button ng-click="logout()" class="button">Logout</button>
     </nav>
 
@@ -12,7 +12,7 @@
 
         <div ng-repeat="list in data" class="list">
             <header>
-                <button ng-click="confirmDelete(list)">X</button>
+                <button ng-click="confirmDelete(list)"><i class="fa fa-close"></i></button>
 
                 <button ng-click="showFilters=!showFilters" class="button">
                     {{ showFilters ? "Hide": "Show" }} filters
@@ -39,7 +39,7 @@
 
             <footer class="add-task">
                 <input type="text" autocomplete="false" ng-model="new_title" />
-                <button ng-click="add(list, new_title)" class="button">+</button>
+                <button ng-click="add(list, new_title)" class="button"><i class="fa fa-plus"></i></button>
             </footer>
         </div>
     </div>
@@ -50,7 +50,7 @@
 
 <div class="add-board" ng-show="showAddBoard" ng-style="popin">
     <div class="content">
-        <button class="button" ng-click="hideBoard()">x</button>
+        <button class="button" ng-click="hideBoard()"><i class="fa fa-close"></i></button>
         <label for="board">Add a board : </label>
         <input type="text" id="board" ng-model="name" />
         <button ng-click="create()">Add list</button>
