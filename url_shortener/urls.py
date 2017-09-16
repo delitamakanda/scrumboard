@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from mini_url.views import jokebot
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic import TemplateView
 from django.conf import settings
@@ -25,5 +24,4 @@ urlpatterns = [
     url(r'^scrumboard/', include('mini_url.urls')),
     url(r'^auth_api/', include('auth_api.urls')),
     url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name='index.html'))),
-    url(r'^donut/?$', jokebot.as_view(), name='donut_bot'),
 ]
