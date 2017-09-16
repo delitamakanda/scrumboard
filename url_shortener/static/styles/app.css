@@ -6,6 +6,7 @@ body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-h
 .navbar {padding-left: 10px;display: flex;align-items: center;}
 .navbar.app {background-color: #0067a3;font-size: 1.5rem;}
 .navbar.board {font-size: 1.1rem;}
+.footer {font-size: 0.8rem;}
 
 .lists {display: flex; display: -webkit-flex; overflow-x: auto; display: -ms-flexbox; display: -webkit-box;}
 .lists > * { flex: 0 0 auto; margin-left: 10px;}
