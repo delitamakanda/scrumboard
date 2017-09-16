@@ -51,8 +51,8 @@
 <div class="add-board" ng-show="showAddBoard" ng-style="popin">
     <div class="content">
         <button class="button" ng-click="hideBoard()">x</button>
-        <label for="">Add a board : </label>
-        <input type="text" ng-model="name" />
+        <label for="board">Add a board : </label>
+        <input type="text" id="board" ng-model="name" />
         <button ng-click="create()">Add list</button>
     </div>
 </div>

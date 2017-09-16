@@ -1,34 +1,30 @@
+<div class="container">
 
-<div class="wrapper-content">
-
-    <div class="text-center">
+    <div class="fieldset text-center header">
+        <i class="icon fa fa-users"></i>
         <h2>Create an account </h2>
+        <p>It's free and it takes less than 10 seconds</p>
     </div>
 
-    <form ng-submit="signup()" class="form form-signup">
+    <div class="fieldset form">
+        <form ng-submit="signup()" class="form form-signup">
 
-        <div class="fieldset">
-            {{ signup_error }}
-        </div>
+            <div class="error">
+                {{ signup_error }}
+            </div>
 
-        <div class="fieldset">
             <label>Username</label>
             <input type="text" ng-model="username" />
-        </div>
 
-        <div class="fieldset">
             <label>Password</label>
             <input type="password" ng-model="password" />
-        </div>
 
-        <div class="fieldset">
             <button type="submit">Signup</button>
-        </div>
 
-        <div class="text-center">
-            <p>Already an account ? Please <a href="#!login">Login</a>.</p>
-        </div>
+            <div class="text-center">
+                <p>Already an account ? Please <a href="#!login">Login</a>.</p>
+            </div>
 
-    </form>
-
+        </form>
+    </div>
 </div>

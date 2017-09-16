@@ -1,7 +1,7 @@
 * {box-sizing: border-box;}
 h1, h2, h3, h4, h5 { margin: 0px; padding: 0px; }
-body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-height: 1.3em; position: relative;}
-.ui { height:  100vh;display: -ms-grid; display: grid;-ms-grid-template-rows:  40px 50px 1fr; grid-template-rows: 40px 50px 1fr;background-color: #0079bf; color: #eee;}
+body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-height: 1.3em; position: relative; background-color: #0079bf; color: #eee;}
+.ui { height:  100vh;display: -ms-grid; display: grid;-ms-grid-template-rows:  40px 50px 1fr; grid-template-rows: 40px 50px 1fr;}
 
 .navbar {padding-left: 10px;display: flex;align-items: center;}
 .navbar.app {background-color: #0067a3;font-size: 1.5rem;}
@@ -21,6 +21,19 @@ body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-h
 .add-board { position: absolute; top: 50%; left: 50%; margin-left: -150px; margin-top: -150px; z-index: 89; background-color: #e2e4e6;}
 .add-board .content {padding: 20px 15px; border-radius: 3px; }
 .overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 88;}
+
+.container { width: 450px; background-color: #fff; margin: 20px auto; border-radius: 3px; box-shadow: 0 1px 10px 0 #444;}
+.fieldset { padding: 10px 50px; }
+.fieldset.header {padding-top: 30px; padding-bottom: 20px;}
+.fieldset.header .icon { font-size: 80px; display: block; color: #0079bf;}
+.fieldset.header h2, .fieldset.header p {margin: 5px 0; padding: 0;}
+.fieldset.header h2 { color: #0079bf; font-size: 25px; font-weight: bolder; }
+.fieldset.header p, .fieldset.form p {color: #aaa;}
+.fieldset.form {padding-bottom: 50px;}
+.fieldset.form input[type="text"], .fieldset.form input[type="password"] {display: block; width: 100%; background-color: #eee; border: none; padding: 15px; margin: 5px 0;}
+.fieldset.form label {color: #aaa;}
+.fieldset.form button {display: block; width: 100%; padding: 15px; border: none; color: #fff; background-color: #0079bf; border-radius: 3px; margin: 10px 0; font-weight: 800; font-size: 16px;}
+.error {color: #ff3333;}
 
 .text-center {text-align: center;}
 .text-left { text-align: left;}
