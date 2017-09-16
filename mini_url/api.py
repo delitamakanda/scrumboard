@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from rest_framework import permissions, generics
+from rest_framework import permissions, generics, status
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -9,6 +9,7 @@ from rest_framework.mixins import (
     UpdateModelMixin,
     DestroyModelMixin,
 )
+from django.http import Http404
 
 from .serializers import ListSerializer, CardSerializer, UsersSerializer
 from .models import Card, List
@@ -28,7 +29,7 @@ class ListViewSet(ModelViewSet):
         #if self.request.method in permissions.SAFE_METHODS:
             #return (permissions.AllowAny(),)
         #return (permissions.IsAuthenticated(), IsUserOfPost(),)
-        
+
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super(ListViewSet, self).dispatch(request, *args, **kwargs)
@@ -36,17 +37,15 @@ class ListViewSet(ModelViewSet):
     def perform_create(self, serializer):
         instance = serializer.save(user=self.request.user)
         return super(ListViewSet, self).perform_create(serializer)
-    
-    def perform_destroy(self, instance):
-        if instance.type == 'userdefined':
-            instance.delete()
-        else:
-            serializer = ListSerializer(instance, data=self.request.data)
-            serializer.is_valid()
-            serializer.save(checked=False)
-            serializer.save(preview_text='')
-            serializer.save(preview_name='')
-            serializer.save(content={"": ""})
+
+    def destroy(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            self.perform_destroy(instance)
+        except Http404:
+            pass
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()

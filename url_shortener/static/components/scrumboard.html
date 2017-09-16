@@ -30,9 +30,10 @@ data-ad-slot="3772616037"></ins>
     <br>
 
     <div ng-repeat="list in data" class="columns board">
+
+        <a href="#" ng-click="confirmDelete(list)">X</a>
+
         <h3>{{ list.name }} </h3>
-        
-        <a href="#" ng-click="deleteList(list)">Remove list</a>
 
         <span>
             <button ng-click="showFilters=!showFilters" class="button">

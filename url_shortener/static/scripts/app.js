@@ -35,19 +35,21 @@
                     });
             };
 
-            //wip delete a list
-            $scope.deleteList = function(list) {
-                var list_pk = {
-                    list: list.id,
-                };
-                $http.delete('/scrumboard/lists/', list_pk)
-                    .then(function(response){
-                        $location.url('/')
-                    }, function(){
-                        console.log('error');
-                    });
-            };
 
+            //delete list
+            $scope.confirmDelete = function(list) {
+                var r = confirm('Are you sure to delete this card ?');
+                if (r == true) {
+                    $http.delete('/scrumboard/lists/' + list.id)
+                        .then(function(response, status, headers, config){
+                            var index = $scope.data.indexOf(list);
+                            $scope.data.splice(index, 1);
+                            $window.location.reload();
+                        }, function(response, error) {
+                            console.log(error);
+                        });
+                }
+            };
 
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
