@@ -145,7 +145,7 @@ STATICFILES_DIRS = (
 LOGIN_REDIRECT_URL = 'scrumboard'
 
 ADMINS = [
-    ('Délita Makanda', 'delita.makanda@gmail.com')
+    ('Delita Makanda', 'delita.makanda@gmail.com')
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
