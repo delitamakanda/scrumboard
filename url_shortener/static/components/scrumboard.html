@@ -62,6 +62,22 @@
 <div class="edit-user" ng-show="editUser" ng-style="userProfile" ng-model-options="modelOptions">
     <div class="content">
         <button class="button" ng-click="editUser=false"><i class="fa-close"></i></button>
+         <div class="">
+             <label>Username:</label>
+             <input type="text" ng-model="user.username" ng-change="update()" />
+        </div>
+        <div class="">
+             <label>First name:</label>
+             <input type="text" ng-model="user.first_name" ng-change="update()" />
+        </div>
+        <div class="">
+             <label>Last name:</label>
+             <input type="text" ng-model="user.last_name" ng-change="update()" />
+        </div>
+        <div class="">
+             <label>E-mail:</label>
+             <input type="text" ng-model="user.email" ng-change="update()" />
+        </div>
     </div>
 </div>
 
