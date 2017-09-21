@@ -50,7 +50,11 @@
                         });
                 }
             };
-
+            
+            // modelOptions
+            $scope.modelOptions = {
+                debounce: 500
+            };
 
 
             //show hide popin
