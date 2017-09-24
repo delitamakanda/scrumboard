@@ -27,6 +27,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_CREDENTIALS = True
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
 
 SERVER_EMAIL = 'scrumy-app@herokuapp.com'
@@ -156,6 +158,3 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = ''
 EMAIL_TIMEOUT = 500
-
-
-

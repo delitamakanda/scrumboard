@@ -58,30 +58,30 @@
         <button ng-click="create()">Add list</button>
     </div>
 </div>
-<!--  ng-show="editUser=false" ng-style="userProfile" ng-model-options="modelOptions" -->
-<div class="edit-user">
+
+<div class="edit-user" ng-show="editUser" ng-style="userProfile" ng-model-options="modelOptions">
     <div class="content">
         <button class="button" ng-click="editUser=false"><i class="fa fa-close"></i></button>
-        <br/><br/>
-        <h3>Edit user informations <br />for stay in touch with us</h3>
-        <br/><br/>
+
+        <p>Edit user informations <br />for stay in touch with us</p>
+
          <div>
              <label for="username">Username:</label>
-             <input id="username" type="text" ng-model="user.username" ng-change="update()" />
+             <input id="username" type="text" ng-model="currentUser.username" ng-change="updateUser()" />
         </div>
         <div>
              <label for="first_name">First name:</label>
-             <input id="first_name" type="text" ng-model="user.first_name" ng-change="update()" />
+             <input id="first_name" type="text" ng-model="currentUser.first_name" ng-change="updateUser()" />
         </div>
         <div>
              <label for="last_name">Last name:</label>
-             <input id="last_name" type="text" ng-model="user.last_name" ng-change="update()" />
+             <input id="last_name" type="text" ng-model="currentUser.last_name" ng-change="updateUser()" />
         </div>
         <div>
              <label for="email">E-mail:</label>
-             <input id="email" type="text" ng-model="user.email" ng-change="update()" />
+             <input id="email" type="email" ng-model="currentUser.email" ng-change="updateUser()" />
         </div>
     </div>
 </div>
 
-<div class="overlay" ng-show="showAddBoard"></div>
+<div class="overlay" ng-show="showAddBoard || editUser"></div>

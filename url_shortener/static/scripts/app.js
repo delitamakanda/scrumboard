@@ -20,6 +20,15 @@
                     });
             };
 
+            //update User
+            $scope.updateUser = function() {
+
+                return $http.patch(
+                    '/scrumboard/users/' + $scope.currentUser.id + '/',
+                    $scope.currentUser
+                );
+            }
+
             //create a new list
             $scope.create = function() {
                 var data = {
@@ -50,7 +59,7 @@
                         });
                 }
             };
-            
+
             // modelOptions
             $scope.modelOptions = {
                 debounce: 500
@@ -75,11 +84,11 @@
             $scope.showAddBoard=false;
             $scope.currentUser = JSON.parse(localStorage.currentUser);
 
-
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
             });
+
 
         }
 }());
