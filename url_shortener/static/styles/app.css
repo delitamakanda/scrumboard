@@ -22,6 +22,7 @@ body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-h
 .add-board, .edit-user { position: absolute; top: 50%; left: 50%; margin-left: -150px; margin-top: -150px; z-index: 89; background-color: #e2e4e6;}
 .add-board .content, .edit-user .content {padding: 20px 15px; border-radius: 3px; }
 .add-board label , .edit-user label { color: #000; display: block; width: auto; }
+.edit-user h3 { color: #000; }
 .overlay { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 88;}
 
 .container { width: 450px; background-color: #fff; margin: 20px auto; border-radius: 3px; box-shadow: 0 1px 10px 0 #444;}
