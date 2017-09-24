@@ -22,6 +22,14 @@
 
             //update User
             $scope.updateUser = function() {
+                localStorage.setItem('currentUser', JSON.stringify({
+                    username: document.getElementById("username").value,
+                    first_name: document.getElementById("first_name").value,
+                    last_name: document.getElementById("last_name").value,
+                    email: document.getElementById("email").value,
+                 }));
+
+                 $scope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
                 return $http.patch(
                     '/scrumboard/users/' + $scope.currentUser.id + '/',
