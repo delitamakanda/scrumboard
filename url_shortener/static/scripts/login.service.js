@@ -35,9 +35,10 @@
         }
         
         function getUserInformation(){
-            return $http.get('')
+            return $http.get('/auth_api/current_user/')
                 .then(function(response){
-            });
+                    return user;
+                });
         }
     }
 })();
