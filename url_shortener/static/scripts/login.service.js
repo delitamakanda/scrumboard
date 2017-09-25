@@ -33,5 +33,11 @@
                 $location.url('/login');
             }
         }
+        
+        function getUserInformation(){
+            return $http.get('')
+                .then(function(response){
+            });
+        }
     }
 })();
