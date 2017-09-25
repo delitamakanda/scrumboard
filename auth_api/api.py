@@ -53,3 +53,10 @@ class CheckoutUser(views.APIView):
             return HttpResponse(json.dumps({'result': {'logged': True}, 'user': request.user.username }), content_type="application/json")
         else:
             return HttpResponse(json.dumps({'result': {'logged': False}}), content_type="application/json")
+        
+        
+
+class GetCurrentUser(views.APIView):
+    
+    def get(request):
+        pass
