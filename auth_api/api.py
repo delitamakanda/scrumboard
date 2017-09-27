@@ -47,7 +47,7 @@ class LogoutView(views.APIView):
 
 
 class CheckoutUser(views.APIView):
-    
+
     def check_login(request):
         if request.user.is_authenticated():
             return HttpResponse(json.dumps({'result': {'logged': True}, 'user': request.user.username }), content_type="application/json")

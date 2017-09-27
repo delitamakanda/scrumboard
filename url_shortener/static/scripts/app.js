@@ -51,6 +51,10 @@
                 }
             };
 
+            // modelOptions
+            $scope.modelOptions = {
+                debounce: 500
+            };
 
 
             //show hide popin
@@ -64,6 +68,7 @@
 
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
+            $scope.userData = [];
             $scope.logout = Login.logout;
             $scope.sortBy='story_points';
             $scope.reverse=true;
@@ -71,11 +76,25 @@
             $scope.showAddBoard=false;
             $scope.currentUser = JSON.parse(localStorage.currentUser);
 
-
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
             });
+
+            // fetch user by id
+            $http.get('/scrumboard/users/' + $scope.currentUser.id).then(function(response){
+                $scope.userData = response.data;
+            });
+
+            //update User
+            $scope.updateUser = function() {
+
+                return $http.patch(
+                    '/scrumboard/users/' + $scope.currentUser.id + '/',
+                    $scope.userData
+                );
+            }
+
 
         }
 }());

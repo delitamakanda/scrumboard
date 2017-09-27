@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,13 +22,16 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cye+m6#rw184d%q0iasyu19!f73&y8e77yd2eb^z82r=p^sz0_'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_CREDENTIALS = True
+
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
 
+SERVER_EMAIL = 'scrumy-app@herokuapp.com'
 
 # Application definition
 
@@ -142,3 +146,15 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = 'scrumboard'
 
+ADMINS = [
+    ('Delita Makanda', 'delita.makanda@gmail.com')
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = ''
+EMAIL_TIMEOUT = 500
