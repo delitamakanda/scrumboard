@@ -5,6 +5,7 @@
 
     <nav class="navbar board">
         <span ng-if="currentUser">Welcome,  {{ currentUser.username }} ! </span>
+        <button ng-click="editUser=true" class="button"><i class="fa fa-user"></i> Edit User Informations</button>
         <button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i> Add a board</button>
         <button ng-click="logout()" class="button">Logout</button>
     </nav>
@@ -51,10 +52,36 @@
 
 <div class="add-board" ng-show="showAddBoard" ng-style="popin">
     <div class="content">
-        <button class="button" ng-click="hideBoard()"><i class="fa-trash-o"></i></button>
+        <button class="button" ng-click="hideBoard()"><i class="fa fa-close"></i></button>
         <label for="board">Add a board : </label>
         <input type="text" id="board" ng-model="name" />
         <button ng-click="create()">Add list</button>
     </div>
 </div>
-<div class="overlay" ng-show="showAddBoard"></div>
+
+<div class="edit-user" ng-show="editUser" ng-style="userProfile" ng-model-options="modelOptions">
+    <div class="content">
+        <button class="button" ng-click="editUser=false"><i class="fa fa-close"></i></button>
+
+        <p>Edit user informations <br />for stay in touch with us</p>
+
+         <div>
+             <label for="username">Username:</label>
+             <input id="username" type="text" ng-model="userData.username" ng-change="updateUser()" />
+        </div>
+        <div>
+             <label for="first_name">First name:</label>
+             <input id="first_name" type="text" ng-model="userData.first_name" ng-change="updateUser()" />
+        </div>
+        <div>
+             <label for="last_name">Last name:</label>
+             <input id="last_name" type="text" ng-model="userData.last_name" ng-change="updateUser()" />
+        </div>
+        <div>
+             <label for="email">E-mail:</label>
+             <input id="email" type="email" ng-model="userData.email" ng-change="updateUser()" />
+        </div>
+    </div>
+</div>
+
+<div class="overlay" ng-show="showAddBoard || editUser"></div>

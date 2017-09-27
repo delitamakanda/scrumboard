@@ -12,3 +12,12 @@ DEBUG = False
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = ''
+EMAIL_TIMEOUT = 500
+
