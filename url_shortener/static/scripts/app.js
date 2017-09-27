@@ -20,23 +20,6 @@
                     });
             };
 
-            //update User
-            $scope.updateUser = function() {
-                localStorage.setItem('currentUser', JSON.stringify({
-                    username: document.getElementById("username").value,
-                    first_name: document.getElementById("first_name").value,
-                    last_name: document.getElementById("last_name").value,
-                    email: document.getElementById("email").value,
-                 }));
-
-                 $scope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-                return $http.patch(
-                    '/scrumboard/users/' + $scope.currentUser.id + '/',
-                    $scope.currentUser
-                );
-            }
-
             //create a new list
             $scope.create = function() {
                 var data = {
@@ -85,6 +68,7 @@
 
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
+            $scope.userData = [];
             $scope.logout = Login.logout;
             $scope.sortBy='story_points';
             $scope.reverse=true;
@@ -96,6 +80,20 @@
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
             });
+
+            // fetch user by id
+            $http.get('/scrumboard/users/' + $scope.currentUser.id).then(function(response){
+                $scope.userData = response.data;
+            });
+
+            //update User
+            $scope.updateUser = function() {
+
+                return $http.patch(
+                    '/scrumboard/users/' + $scope.currentUser.id + '/',
+                    $scope.userData
+                );
+            }
 
 
         }
