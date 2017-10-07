@@ -18,17 +18,13 @@ from mini_url.permissions import IsUserOfPost, IsOwnerOrReadOnly
 
 class ListViewSet(ModelViewSet):
     serializer_class = ListSerializer
-    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
+    permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly, ]
 
     def get_queryset(self):
         queryset = List.objects.all().filter(user=self.request.user)
 
         return queryset
 
-    #def get_permissions(self):
-        #if self.request.method in permissions.SAFE_METHODS:
-            #return (permissions.AllowAny(),)
-        #return (permissions.IsAuthenticated(), IsUserOfPost(),)
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -50,11 +46,10 @@ class ListViewSet(ModelViewSet):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    permission_classes = (permissions.IsAuthenticated)
-
+    permission_classes = [ permissions.IsAuthenticatedOrReadOnly, ]
 
 
 class UsersViewsSet(ModelViewSet):
     serializer_class = UsersSerializer
-    permission_classes = (permissions.IsAuthenticated)
+    permission_classes = [ permissions.IsAuthenticated, ]
     queryset = User.objects.all()
