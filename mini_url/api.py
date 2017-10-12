@@ -18,7 +18,7 @@ from mini_url.permissions import IsUserOfPost, IsOwnerOrReadOnly
 
 class ListViewSet(ModelViewSet):
     serializer_class = ListSerializer
-    permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly, ]
+    permission_classes = [permissions.IsAuthenticated, ]
 
     def get_queryset(self):
         queryset = List.objects.all().filter(user=self.request.user)
