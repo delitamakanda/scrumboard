@@ -49,7 +49,7 @@ class CardViewSet(ModelViewSet):
     permission_classes = [ permissions.IsAuthenticatedOrReadOnly, ]
     
     def get_queryset(self):
-        queryset = Card.objects.all().filter(list=list)
+        queryset = Card.objects.all().filter(list=cards)
 
         return queryset
 
