@@ -14,7 +14,7 @@ from django.http import Http404
 from .serializers import ListSerializer, CardSerializer, UsersSerializer
 from .models import Card, List
 from django.contrib.auth.models import User
-from mini_url.permissions import IsUserOfPost, IsOwnerOrReadOnly
+from mini_url.permissions import IsUserOfPost, IsOwnerOrReadOnly, IsAdminUser
 
 class ListViewSet(ModelViewSet):
     serializer_class = ListSerializer
@@ -46,12 +46,7 @@ class ListViewSet(ModelViewSet):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    permission_classes = [ permissions.IsAuthenticatedOrReadOnly, ]
-    
-    def get_queryset(self):
-        queryset = Card.objects.all().filter(list=cards)
-
-        return queryset
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, permissions.IsAdminUser,)
 
 
 class UsersViewsSet(ModelViewSet):
