@@ -47,6 +47,11 @@ class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
     permission_classes = [ permissions.IsAuthenticatedOrReadOnly, ]
+    
+    def get_queryset(self):
+        queryset = Card.objects.all().filter(list=list)
+
+        return queryset
 
 
 class UsersViewsSet(ModelViewSet):
