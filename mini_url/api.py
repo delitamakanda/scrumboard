@@ -46,10 +46,10 @@ class ListViewSet(ModelViewSet):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, permissions.IsAdminUser,)
+    permission_classes = ( IsAdminUser, )
 
 
 class UsersViewsSet(ModelViewSet):
     serializer_class = UsersSerializer
-    permission_classes = [ permissions.IsAuthenticated, ]
+    permission_classes = ( IsAdminUser, )
     queryset = User.objects.all()
