@@ -14,7 +14,7 @@ from django.http import Http404
 from .serializers import ListSerializer, CardSerializer, UsersSerializer
 from .models import Card, List
 from django.contrib.auth.models import User
-from mini_url.permissions import IsUserOfPost, IsOwnerOrReadOnly, IsAdminUser
+from mini_url.permissions import IsUserOfPost, IsAdminUser
 
 class ListViewSet(ModelViewSet):
     serializer_class = ListSerializer
