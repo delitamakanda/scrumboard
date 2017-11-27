@@ -19,3 +19,12 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
         
         return obj.owner == request.user
+    
+    
+    
+class IsAdminUser(permissions.BasePermission):
+    """
+    Allows access only to admin users.
+    """
+    def has_permission(self, request, view):
+        return request.user and request.user.is_staff
