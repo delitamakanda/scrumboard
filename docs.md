@@ -15,3 +15,4 @@
 
 ## Sketch
 ![img](https://cdn.dribbble.com/users/556962/screenshots/2582374/attachments/513351/artboard_1.jpg)
+![img2](https://github.com/delitamakanda/scrumy-app/blob/master/resources/mailstack-full.png?raw=true)
