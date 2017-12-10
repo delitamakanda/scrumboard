@@ -19,3 +19,13 @@ class Card(models.Model):
 
     def __str__(self):
         return "Card : {}".format(self.title)
+
+
+class Todo(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=100, unique=True, blank=False, null=False)
+    text = models.TextField()
+    user = models.ForeignKey(User, related_name='todos', blank=False, null=False, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('created',)

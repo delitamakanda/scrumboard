@@ -11,8 +11,8 @@ from rest_framework.mixins import (
 )
 from django.http import Http404
 
-from .serializers import ListSerializer, CardSerializer, UsersSerializer
-from .models import Card, List
+from .serializers import ListSerializer, CardSerializer, UsersSerializer, TodoSerializer
+from .models import Card, List, Todo
 from django.contrib.auth.models import User
 # from mini_url.permissions import IsUserOfPost, IsAdminUser
 
@@ -48,6 +48,13 @@ class CardViewSet(ModelViewSet):
     serializer_class = CardSerializer
     permission_classes = [ permissions.IsAdminUser, ]
 
+class TodoViewSet(ModelViewSet):
+    serializer_class = TodoSerializer
+    permission_classes = [ permissions.IsAdminUser, ]
+
+    def get_queryset(self):
+        queryset = Todo.objects.all().filter(user=self.request.user)
+        return queryset
 
 class UsersViewsSet(ModelViewSet):
     serializer_class = UsersSerializer
