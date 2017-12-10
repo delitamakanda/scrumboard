@@ -1,0 +1,20 @@
+<div class="ui">
+    <nav class="navbar app">
+        <h1>Scrumy</h1>
+    </nav>
+
+    <nav class="navbar board">
+        <a href="#!" title="">Boards</a>
+        <a href="#!todo" title="work in progress">Taskr</a>
+    </nav>
+
+    <div class="todos">
+        <div ng-repeat="todo in data" class="todo">
+            <header>
+                <h3>{{ todo.name }}</h3>
+            </header>
+            <p>{{ todo.text }}</p>
+            <small>{{ todo.created | date:'MM/dd/yyyy' }}</small>
+        </div>
+    </div>
+</div>
