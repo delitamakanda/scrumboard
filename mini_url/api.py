@@ -52,6 +52,10 @@ class CardViewSet(ModelViewSet):
 class TodoViewSet(ModelViewSet):
     serializer_class = TodoSerializer
     permission_classes = [ permissions.IsAdminUser, ]
+    
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(TodoViewSet, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         queryset = Todo.objects.all().filter(user=self.request.user)
