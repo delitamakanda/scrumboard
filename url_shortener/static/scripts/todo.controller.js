@@ -10,6 +10,7 @@
             $scope.createTask = function() {
                 var todo = {
                     name: $scope.name,
+                    text: $scope.text,
                 };
                 
                 $http.post('/scrumboard/todos/', todo)
