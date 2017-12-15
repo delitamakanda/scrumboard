@@ -3,9 +3,9 @@
 
     angular.module('scrumboard')
         .controller('TodoController', TodoController,
-        ['$scope', '$http', '$location', 'Login', TodoController]);
+        ['$scope', '$http', '$location', '$window', 'Login', TodoController]);
 
-        function TodoController($scope, $http, $location, Login){
+        function TodoController($scope, $http, $location, $window, Login){
             
             $scope.createTask = function() {
                 var data = {
@@ -14,7 +14,7 @@
                 
                 $http.post('/scrumboard/todos/', data)
                     .then(function(response) {
-                        $location.url('/todos');
+                        $location.url('/todo');
                         $window.location.reload();
                     }, function(){
                         console.log('error');
