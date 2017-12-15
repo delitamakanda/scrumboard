@@ -8,18 +8,23 @@
         function TodoController($scope, $http, $location, $window, Login){
             
             $scope.createTask = function() {
-                var data = {
+                var todo = {
                     name: $scope.name,
                 };
                 
-                $http.post('/scrumboard/todos/', data)
+                $http.post('/scrumboard/todos/', todo)
                     .then(function(response) {
                         $location.url('/todo');
                         $window.location.reload();
                     }, function(){
                         console.log('error');
                     });
-            }
+            };
+            
+            // modelOptions
+            $scope.modelOptions = {
+                debounce: 500
+            };
             
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
