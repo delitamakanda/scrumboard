@@ -48,6 +48,7 @@ class CardViewSet(ModelViewSet):
     serializer_class = CardSerializer
     permission_classes = [ permissions.IsAdminUser, ]
 
+
 class TodoViewSet(ModelViewSet):
     serializer_class = TodoSerializer
     permission_classes = [ permissions.IsAdminUser, ]
@@ -55,7 +56,12 @@ class TodoViewSet(ModelViewSet):
     def get_queryset(self):
         queryset = Todo.objects.all().filter(user=self.request.user)
         return queryset
+    
+    def perform_create(self, serializer):
+        instance = serializer.save(user=self.request.user)
+        return super(TodoViewSet, self).perform_create(serializer)
 
+ 
 class UsersViewsSet(ModelViewSet):
     serializer_class = UsersSerializer
     permission_classes = [ permissions.IsAdminUser, ]
