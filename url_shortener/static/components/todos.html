@@ -7,6 +7,14 @@
         <a href="#!" title="">Boards</a>
         <a href="#!todo" title="work in progress">Taskr</a>
     </nav>
+    
+    <div class="add-task">
+        <div class="content">
+            <label for="taskr">Add a thing to do : </label>
+            <input type="text" id="taskr" ng-model="name" />
+            <button ng-click="createTask()">Add a task</button>
+        </div>
+    </div>
 
     <div class="todos">
         <div ng-repeat="todo in data" class="todo">
