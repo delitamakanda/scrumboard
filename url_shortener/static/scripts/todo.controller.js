@@ -12,6 +12,7 @@
             Todos.createTodo($scope.newTodo)
                 .then(function(res) {
                     $location.url('/todo');
+                    $window.location.reload()
                 }, function() {
                     console.log('error');
                 });

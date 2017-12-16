@@ -15,7 +15,7 @@
         }
 
         function updateTodo(updatedTodo) {
-            return $http.put('/scrumboard/todos/' + updatedTodo.id, updatedTodo);
+            return $http.put('/scrumboard/todos/' + updatedTodo.id + '/', updatedTodo);
         }
 
         function deleteTodo(id) {
