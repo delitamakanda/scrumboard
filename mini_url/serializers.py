@@ -10,6 +10,13 @@ class CardSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class TodoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Todo
+        fields = '__all__'
+
+
 class ListSerializer(serializers.ModelSerializer):
     cards = CardSerializer(read_only=True, many=True)
 
@@ -17,11 +24,6 @@ class ListSerializer(serializers.ModelSerializer):
         model = List
         fields = '__all__'
 
-class TodoSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Todo
-        fields = '__all__'
 
 
 class UsersSerializer(serializers.ModelSerializer):

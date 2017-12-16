@@ -6,11 +6,12 @@
         .controller('TodoController', ['$scope', '$http', '$location', '$window', 'Login', TodoController]);
 
     function TodoController($scope, $http, $location, $window, Login){
-
         $scope.createTask = function() {
             var data = {
                 name: $scope.name,
-                text: $scope.text
+                text: $scope.text,
+                user: $scope.currentUser.id,
+
             };
 
             $http.post('/scrumboard/todos/', data)
@@ -24,6 +25,8 @@
 
         Login.redirectedIfNotLoggedIn();
         $scope.data = [];
+        $scope.currentUser = JSON.parse(localStorage.currentUser);
+
 
         // fetch all of your lists and cards
         $http.get('/scrumboard/todos').then(function(response){
