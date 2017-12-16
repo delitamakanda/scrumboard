@@ -26,7 +26,7 @@ class Todo(models.Model):
     complete = models.BooleanField(default=False)
     name = models.CharField(max_length=100, unique=True, blank=False, null=False)
     text = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, related_name='todos', blank=False, null=False, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='todos', blank=True, null=True, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('created',)

@@ -55,7 +55,7 @@ class TodoViewSet(ModelViewSet):
 
     def get_queryset(self):
         queryset = Todo.objects.all().filter(user=self.request.user)
-        
+
         return queryset
 
     @method_decorator(csrf_exempt)

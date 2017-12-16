@@ -3,35 +3,35 @@
 
     angular
         .module('scrumboard')
-        .controller('TodoController', ['$scope', '$http', '$location', '$window', 'Login', TodoController]);
+        .controller('TodoController', ['$scope', '$http', '$location', '$window', 'Login', 'Todos', TodoController]);
 
-    function TodoController($scope, $http, $location, $window, Login){
-        $scope.createTask = function() {
-            var data = {
-                name: $scope.name,
-                text: $scope.text,
-                user: $scope.currentUser.id,
+    function TodoController($scope, $http, $location, $window, Login, Todos){
+        $scope.newTodo = {};
 
-            };
-
-            $http.post('/scrumboard/todos/', data)
-                .then(function(response) {
+        $scope.addTodo = function() {
+            Todos.createTodo($scope.newTodo)
+                .then(function(res) {
                     $location.url('/todo');
-                    $window.location.reload();
-                }, function(){
+                }, function() {
                     console.log('error');
                 });
         };
 
-        Login.redirectedIfNotLoggedIn();
-        $scope.data = [];
-        $scope.currentUser = JSON.parse(localStorage.currentUser);
+        $scope.toggleCompleted = function(todo) {
+            Todos.updateTodo(todo);
+        }
 
+        $scope.deletedTodo = function(id) {
+            Todos.deleteTodo(id);
+            $scope.todos = $scope.todos.filter(function(todo) {
+                return todo.id !== id;
+            })
+        }
 
-        // fetch all of your lists and cards
-        $http.get('/scrumboard/todos').then(function(response){
-            $scope.data = response.data;
+        Todos.getTodos().then(function(res) {
+            return $scope.todos = res.data;
         });
 
+        Login.redirectedIfNotLoggedIn();
     }
 }());

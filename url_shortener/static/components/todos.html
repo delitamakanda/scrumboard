@@ -7,23 +7,29 @@
         <a href="#!" title="">Boards</a>
         <a href="#!todo" title="work in progress">Taskr</a>
     </nav>
-    
+
     <div class="add-task">
         <div class="content">
-            <label>Add a thing to do : </label>
-            <input type="text" id="name" ng-model="name" />
-            <input type="text" id="text" ng-model="text" />
-            <button ng-click="createTask()">Add a task</button>
+            <h4>Add a thing to do : </h4>
+            <div>
+                <input type="text" placeholder="Name" ng-model="newTodo.name" />
+            </div>
+            <div>
+                <textarea ng-model="newTodo.text" placeholder="Description" rows="15"></textarea>
+            </div>
+            <button ng-click="addTodo()">Add a task</button>
         </div>
     </div>
 
     <div class="todos">
-        <div ng-repeat="todo in data" class="todo">
+        <div ng-repeat="todo in todos" class="todo" ng-class="{completed: todo.complete}">
             <header>
                 <h3>{{ todo.name }}</h3>
             </header>
             <p>{{ todo.text }}</p>
             <small>{{ todo.created | date:'MM/dd/yyyy' }}</small>
+            <input type="checkbox" ng-checked="todo.complete" ng-change="toggleCompleted(todo)" ng-model="todo.complete" />
+            <span class="badge" ng-click="deletedTodo(todo.id)">X</span>
         </div>
     </div>
 </div>

@@ -40,3 +40,6 @@ body {margin: 0;font-family: 'Tahoma', Arial, sans-serif;font-size: 14px; line-h
 .text-center {text-align: center;}
 .text-left { text-align: left;}
 .text-right { text-align: right; }
+
+.completed { text-decoration: line-through; }
+.badge { cursor: pointer; }
