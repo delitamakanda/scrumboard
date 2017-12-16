@@ -46,12 +46,12 @@ class ListViewSet(ModelViewSet):
 class CardViewSet(ModelViewSet):
     queryset = Card.objects.all()
     serializer_class = CardSerializer
-    permission_classes = [ permissions.IsAdminUser, ]
+    permission_classes = [ permissions.IsAuthenticated, ]
 
 
 class TodoViewSet(ModelViewSet):
     serializer_class = TodoSerializer
-    permission_classes = [ permissions.IsAdminUser, ]
+    permission_classes = [ permissions.IsAuthenticated, ]
 
     def get_queryset(self):
         queryset = Todo.objects.all().filter(user=self.request.user)
@@ -70,5 +70,5 @@ class TodoViewSet(ModelViewSet):
 
 class UsersViewsSet(ModelViewSet):
     serializer_class = UsersSerializer
-    permission_classes = [ permissions.IsAdminUser, ]
+    permission_classes = [ permissions.IsAuthenticated, ]
     queryset = User.objects.all()
