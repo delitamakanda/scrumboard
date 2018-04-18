@@ -15,7 +15,7 @@
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
                         list.cards.push(response.data);
-                        $scope.title = ''; // clear form
+                        $scope.title.setPristine(); // clear form
                     }, function(){
                         console.log('error');
                     });
