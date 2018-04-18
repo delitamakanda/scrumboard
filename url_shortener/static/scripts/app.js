@@ -15,6 +15,7 @@
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
                         list.cards.push(response.data);
+                        title = ''; // clear form
                     }, function(){
                         console.log('error');
                     });
