@@ -15,10 +15,11 @@
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
                         list.cards.push(response.data);
-                        $scope.new_title = '' // clear form
                     }, function(){
                         console.log('error');
                     });
+                
+                $scope.new_title = '' // clear form
             };
 
             //create a new list
