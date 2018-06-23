@@ -6,8 +6,6 @@ ALLOWED_HOSTS = ['.herokuapp', '*', '.elasticbeanstalk.com',]
 
 DEBUG = config('DEBUG', cast=bool)
 
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 STATIC_ROOT = 'static'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
