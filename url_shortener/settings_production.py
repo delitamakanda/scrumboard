@@ -2,7 +2,7 @@ from url_shortener.settings import *
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['.herokuapp', '*',]
+ALLOWED_HOSTS = ['.herokuapp', '*', '.elasticbeanstalk.com',]
 
 DEBUG = config('DEBUG', cast=bool)
 
