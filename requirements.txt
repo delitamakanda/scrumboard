@@ -8,3 +8,4 @@ waitress==0.8.10
 requests==2.13.0
 djangorestframework
 python-decouple==3.1
+awsebcli==3.14.1
