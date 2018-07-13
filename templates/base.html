@@ -1,0 +1,31 @@
+{% load staticfiles %}
+{% load i18n %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles/app.css' %}">
+    <meta name="description" content="A personnal task board for you and your team" />
+    <meta name="keywords" content="django, webapp, délita makanda, paris, python, scrumboard, kanban, scrumy, task board, todos">
+</head>
+
+<body>
+  {% block body_content %}{% endblock %}
+  
+  <script src="{% static 'scripts/vendor/jquery.js' %}"></script>
+  <script src="{% static 'scripts/vendor/angular.min.js' %}"></script>
+  <script src="{% static 'scripts/vendor/angular-route.min.js'%}"></script>
+  <script src="{% static 'scripts/app.js' %}"></script>
+  <script src="{% static 'scripts/app.config.js' %}"></script>
+  <script src="{% static 'scripts/login.controller.js' %}"></script>
+  <script src="{% static 'scripts/signup.controller.js' %}"></script>
+  <script src="{% static 'scripts/login.service.js' %}"></script>
+  <script src="{% static 'scripts/card.directive.js' %}"></script>
+  <script src="{% static 'scripts/todo.controller.js' %}"></script>
+  <script src="{% static 'scripts/todo.service.js' %}"></script>
+  </body>
+</html>
