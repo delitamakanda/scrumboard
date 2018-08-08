@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <!--inject:css-->
+    <!--endinject-->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'styles/app.css' %}">
     <meta name="description" content="A personnal task board for you and your team" />
@@ -27,6 +29,8 @@
   <script src="{% static 'scripts/card.directive.js' %}"></script>
   <script src="{% static 'scripts/todo.controller.js' %}"></script>
   <script src="{% static 'scripts/todo.service.js' %}"></script>
+  <!--inject:js-->
+  <!--endinject-->
     
     <footer class="footer text-center">
         Copyright (c) 2017 - 2018 Scrumy - All Rights Reserved. | <a href="mailto:delita.makanda@gmail.com">contact me</a>
