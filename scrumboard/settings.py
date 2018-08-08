@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'url_shortener.urls'
+ROOT_URLCONF = 'scrumboard.urls'
 
 TEMPLATES = [
     {
@@ -80,15 +80,7 @@ TEMPLATES = [
     },
 ]
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'KEY_PREFIX': 'url_shortener',
-        'LOCATION': '127.0.0.1:8000',
-    },
-}
-
-WSGI_APPLICATION = 'url_shortener.wsgi.application'
+WSGI_APPLICATION = 'scrumboard.wsgi.application'
 
 
 # Database

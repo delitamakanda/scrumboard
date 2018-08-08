@@ -1,4 +1,4 @@
-from url_shortener.settings import *
+from scrumboard.settings import *
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
