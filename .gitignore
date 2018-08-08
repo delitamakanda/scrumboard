@@ -91,3 +91,8 @@ ENV/
 .ropeproject
 
 db.sqlite3
+
+# npm
+node_modules
+dist
+npm-debug.log
