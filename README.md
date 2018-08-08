@@ -3,7 +3,7 @@ scrumboard app from Pluralsight courses
 
 # Features
 - trello-like boards
-- to do complete / incomplete 
+- to do complete / incomplete
 
 # Continuous integration
 

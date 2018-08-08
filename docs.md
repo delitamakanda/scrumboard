@@ -12,7 +12,4 @@
 * [helper account](https://thinkster.io/django-angularjs-tutorial)
 * [helper account 2](http://blog.kevinastone.com/getting-started-with-django-rest-framework-and-angularjs.html)
 * [https://www.andreagrandi.it/](https://www.andreagrandi.it/)
-
-## Sketch
-![img](https://cdn.dribbble.com/users/556962/screenshots/2582374/attachments/513351/artboard_1.jpg)
-![img2](https://github.com/delitamakanda/scrumy-app/blob/master/resources/mailstack-full.png?raw=true)
+* [oreilly](https://www.safaribooksonline.com/library/view/lightweight-django/9781491946275/ch04.html)
