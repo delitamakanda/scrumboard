@@ -96,3 +96,4 @@ db.sqlite3
 node_modules
 dist
 npm-debug.log
+.DS_Store
