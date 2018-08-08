@@ -18,7 +18,7 @@
                     }, function(){
                         console.log('error');
                     });
-                
+
                 $scope.new_title = '' // clear form
             };
 
