@@ -49,6 +49,7 @@ a:focus { outline: 0 none; }
 .fieldset.form input[type="text"], .fieldset.form input[type="password"] {display: block; width: 100%; background-color: #ecf4f3; border: none; padding: 8px 5px; margin-bottom: 20px; }
 .fieldset.form label {color: #555151;}
 .fieldset.form button {display: block; padding: 15px; border: none; color: #fff; background-color: #76dbd1; border-radius: 3px; margin: 10px 0; font-weight: 800; font-size: 16px; cursor: pointer;}
+
 .error {color: #ff3333;}
 
 .text-center {text-align: center;}

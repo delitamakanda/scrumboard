@@ -14,8 +14,8 @@
                     $scope.todos.push(res.data);
                     $scope.newTodo.name = '';
                     $scope.newTodo.text = '';
-                }, function() {
-                    console.log('error');
+                }, function(error) {
+                    console.log('error', error);
                 });
         };
 

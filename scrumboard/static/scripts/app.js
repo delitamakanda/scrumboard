@@ -6,7 +6,7 @@
         ['$scope', '$http', '$location', '$window', 'Login', ScrumboardController]);
 
         function ScrumboardController($scope, $http, $location, $window, Login){
-            //add card to the list
+            // add card to the list
             $scope.add = function(list, title) {
                 var card = {
                     list: list.id,
@@ -15,13 +15,12 @@
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
                         list.cards.push(response.data);
-                        $scope.new_title = '';
                     }, function(){
                         console.log('error');
                     });
             };
 
-            //create a new list
+            // create a new list
             $scope.create = function() {
                 var data = {
                     name: $scope.name,
@@ -35,7 +34,7 @@
                     });
             };
 
-            //delete list
+            // delete a list
             $scope.confirmDelete = function(list) {
                 var r = confirm('Are you sure to delete this list ?');
                 if (r == true) {
@@ -81,7 +80,7 @@
                 $scope.userData = response.data;
             });
 
-            //update User
+            // update User
             $scope.updateUser = function() {
 
                 return $http.patch(
