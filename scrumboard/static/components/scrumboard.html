@@ -1,14 +1,13 @@
-<div class="ui">
-    <nav class="navbar app">
-        <h1>Scrumy</h1>
-    </nav>
-
+<div class="ui interface">
     <nav class="navbar board">
-        <span ng-if="currentUser">Welcome,  {{ currentUser.username }} ! </span>
-        <button ng-click="editUser=true" class="button"><i class="fa fa-user"></i> Edit User Informations</button>
-        <button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i> Add a board</button>
-        <button ng-click="logout()" class="button">Logout</button>
-        <a href="#!todo" title="work in progress">Taskr</a>
+        <ul class="nav-list">
+            <li><a class="brand-logo" href="#!">Scrumy</a></li>
+            <li ng-if="currentUser">Hello {{ currentUser.username }} !</li>
+            <li><button ng-click="editUser=true" class="button"><i class="fa fa-user"></i> Edit User Informations</button></li>
+            <li><button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i> Add a board</button></li>
+            <li><button ng-click="logout()" class="button">Logout</button></li>
+            <li><a href="#!todo" title="work in progress">Taskr</a></li>
+        </ul>
     </nav>
 
     <div class="lists">

@@ -11,8 +11,9 @@
         $scope.addTodo = function() {
             Todos.createTodo($scope.newTodo)
                 .then(function(res) {
-                    $location.url('/todo');
-                    $window.location.reload()
+                    $scope.todos.push(res.data);
+                    $scope.newTodo.name = '';
+                    $scope.newTodo.text = '';
                 }, function() {
                     console.log('error');
                 });

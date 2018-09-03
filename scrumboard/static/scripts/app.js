@@ -15,11 +15,10 @@
                 $http.post('/scrumboard/cards/', card)
                     .then(function(response){
                         list.cards.push(response.data);
+                        $scope.new_title = '';
                     }, function(){
                         console.log('error');
                     });
-
-                $scope.new_title = '' // clear form
             };
 
             //create a new list
@@ -30,25 +29,19 @@
 
                 $http.post('/scrumboard/lists/', data)
                     .then(function(response) {
-                        $location.url('/');
-                        $window.location.reload();
+                        $scope.data.push(response.data)
                     }, function(){
                         console.log('error');
                     });
             };
 
-
             //delete list
             $scope.confirmDelete = function(list) {
-                var r = confirm('Are you sure to delete this card ?');
+                var r = confirm('Are you sure to delete this list ?');
                 if (r == true) {
                     $http.delete('/scrumboard/lists/' + list.id)
-                        .then(function(response, status, headers, config){
-                            var index = $scope.data.indexOf(list);
-                            $scope.data.splice(index, 1);
-                            $window.location.reload();
-                        }, function(response, error) {
-                            console.log(error);
+                        .then(function(){
+                            $scope.data.splice(list, 1)
                         });
                 }
             };
