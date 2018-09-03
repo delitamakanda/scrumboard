@@ -7,6 +7,7 @@
 ## styling css
 * https://hackernoon.com/how-to-create-fancy-revealing-animations-with-these-simple-css-tricks-5b34614ae69a
 * https://www.sitepoint.com/building-trello-layout-css-grid-flexbox/?utm_source=frontendfocus&utm_medium=email
+* https://dribbble.com/shots/2437259-Lightbox-UI
 
 ## tutorials
 * [helper account](https://thinkster.io/django-angularjs-tutorial)
