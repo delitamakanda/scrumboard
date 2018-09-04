@@ -3,10 +3,10 @@
         <ul class="nav-list">
             <li><a class="brand-logo" href="#!">Scrumy</a></li>
             <li ng-if="currentUser">Hello {{ currentUser.username }} !</li>
-            <li><button ng-click="editUser=true" class="button"><i class="fa fa-user"></i> Edit User Informations</button></li>
-            <li><button ng-click="addBoard()" class="button"><i class="fa fa-plus"></i> Add a board</button></li>
-            <li><button ng-click="logout()" class="button">Logout</button></li>
-            <li><a href="#!todo" title="work in progress">Taskr</a></li>
+            <li><button ng-click="editUser=true" class="button"><i class="fas fa-user"></i> Edit User Informations</button></li>
+            <li><button ng-click="addBoard()" class="button"><i class="fas fa-plus"></i> Add a board</button></li>
+            <li><button ng-click="logout()" class="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+            <li class="fl-right"><a href="#!todo" class="button">Go To Taskr <i class="fas fa-chevron-right"></i></a></li>
         </ul>
     </nav>
 
@@ -14,9 +14,9 @@
 
         <div ng-repeat="list in data" class="list">
             <header>
-                <button ng-click="confirmDelete(list)"><i class="fa fa-trash-o"></i></button>
+                <button ng-click="confirmDelete(list)" class="button little"><i class="fas fa-trash"></i></button>
 
-                <button ng-click="showFilters=!showFilters" class="button">
+                <button ng-click="showFilters=!showFilters" class="button little">
                     {{ showFilters ? "Hide": "Show" }} filters
                 </button>
 
@@ -41,7 +41,7 @@
 
             <footer class="add-task">
                 <input type="text" autocomplete="false" ng-model="new_title" />
-                <button ng-click="add(list, new_title)" class="button"><i class="fa fa-plus"></i></button>
+                <button ng-click="add(list, new_title)" class="button little"><i class="fa fa-plus"></i></button>
             </footer>
         </div>
     </div>
@@ -49,19 +49,19 @@
 
 <div class="add-board" ng-show="showAddBoard" ng-style="popin">
     <div class="content">
-        <button class="button" ng-click="hideBoard()"><i class="fa fa-close"></i></button>
-        <label for="board">Add a board : </label>
-        <input type="text" id="board" ng-model="name" />
-        <button ng-click="create()">Add list</button>
+        <button class="button little fl-right" ng-click="hideBoard()"><i class="fas fa-window-close"></i></button>
+        <div class="clearfix"></div>
+        <h3 class="form-title">Add a board.</h3>
+        <input type="text" id="board" placeholder="Add a board" ng-model="name" />
+        <button ng-click="create()" class="button">Add a board</button>
     </div>
 </div>
 
 <div class="edit-user" ng-show="editUser" ng-style="userProfile" ng-model-options="modelOptions">
     <div class="content">
-        <button class="button" ng-click="editUser=false"><i class="fa fa-close"></i></button>
-
-        <p>Edit user informations <br />for stay in touch with us</p>
-
+        <button class="button little fl-right" ng-click="editUser=false"><i class="fas fa-window-close"></i></button>
+        <div class="clearfix"></div>
+        <h3 class="form-title">Edit user informations.</h3>
          <div>
              <label for="username">Username:</label>
              <input id="username" type="text" ng-model="userData.username" ng-change="updateUser()" />

@@ -2,33 +2,32 @@
     <nav class="navbar board">
         <ul class="nav-list">
             <li><a class="brand-logo" href="#!">Scrumy</a></li>
-            <li><a href="#!">Back to boards</a></li>
+            <li class="fl-right"><a href="#!" class="button"><i class="fas fa-chevron-left"></i> Back to boards</a></li>
             <li>Taskr</li>
         </ul>
     </nav>
 
-    <div class="add-task">
-        <div class="content">
-            <h4>Add a thing to do : </h4>
-            <div>
-                <input type="text" placeholder="Name" ng-model="newTodo.name" />
-            </div>
-            <div>
-                <textarea ng-model="newTodo.text" placeholder="Description" rows="15"></textarea>
-            </div>
-            <button ng-click="addTodo()">Add a task</button>
+    <section class="todo-interface container">
+        <div class='container__header'>
+            <h1>Add a thing to do : </h1>
         </div>
-    </div>
+        <div class='container__description'>
+            Go on, add or remove items from the list.
+       </div>
+       <input type="text" placeholder="Name" ng-model="newTodo.name" />
+       <textarea ng-model="newTodo.text" placeholder="Description" rows="15"></textarea>
+       <button ng-click="addTodo()">Add a task</button>
 
-    <div class="todos">
-        <div ng-repeat="todo in todos" class="todo" ng-class="{completed: todo.complete}">
-            <header>
-                <h3>{{ todo.name }}</h3>
-            </header>
-            <p>{{ todo.text }}</p>
-            <small>{{ todo.created | date:'MM/dd/yyyy' }}</small>
-            <input type="checkbox" ng-checked="todo.complete" ng-change="toggleCompleted(todo)" ng-model="todo.complete" />
-            <span class="badge" ng-click="deletedTodo(todo.id)">X</span>
-        </div>
-    </div>
+        <ul class="todos">
+            <li ng-repeat="todo in todos" class="todo list__item" ng-class="{completed: todo.complete}">
+                <header>
+                    <h3>{{ todo.name }}</h3>
+                </header>
+                <p>{{ todo.text }}</p>
+                <small>{{ todo.created | date:'MM/dd/yyyy' }}</small>
+                <input type="checkbox" ng-checked="todo.complete" ng-change="toggleCompleted(todo)" ng-model="todo.complete" />
+                <span ng-click="deletedTodo(todo.id)"><i class="fas fa-window-close"></i></span>
+            </li>
+        </ul>
+    </section>
 </div>

@@ -30,9 +30,9 @@
         <input type="text" ng-model="card.business_value" ng-change="update()" />
     </div>
     <div>
-        <button ng-click="edit=false" class="button">Close</button>
-        <button ng-click="delete()" class="button">Delete card</button>
+        <button ng-click="edit=false" class="button little"><i class="fas fa-close"></i>Close</button>
+        <button ng-click="delete()" class="button little">Delete card</button>
         <select ng-options="list as list.name for list in data" ng-model="destList"></select>
-        <button ng-click="move()" class="button">Move</button>
+        <button ng-click="move()" class="button little">Move</button>
     </div>
 </div>
