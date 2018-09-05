@@ -7,7 +7,7 @@
         </ul>
     </nav>
 
-    <section class="todo-interface container">
+    <section class="todo-interface">
         <div class='container__header'>
             <h1>Add a thing to do : </h1>
         </div>
@@ -15,8 +15,8 @@
             Go on, add or remove items from the list.
        </div>
        <input type="text" placeholder="Name" ng-model="newTodo.name" />
-       <textarea ng-model="newTodo.text" placeholder="Description" rows="15"></textarea>
-       <button ng-click="addTodo()">Add a task</button>
+       <input type="text" placeholder="Description" ng-model="newTodo.text" />
+       <button ng-click="addTodo()" class="button little"><i class="fas fa-plus"></i></button>
 
         <ul class="todos">
             <li ng-repeat="todo in todos" class="todo list__item" ng-class="{completed: todo.complete}">

@@ -39,7 +39,7 @@ section { padding: 0 20px 20px 20px; }
 .list ul li { background: #fff; padding: 10px; border-radius: 3px; box-shadow: 0 1px 1px rgba(0,0,0,0.1);}
 .list ul li:not(:last-child) {margin-bottom: 10px;}
 
-.add-board, .edit-user { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 98; background-color: #ffffff; max-width: 520px; width: 100%; border-radius: 4px; box-shadow: 0 1px 1px 1px rgba(0,0,0,0.2);}
+.add-board, .edit-user { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 98; background-color: #ffffff; max-width: 520px; width: 100%; border-radius: 4px; box-shadow: 0 1px 1px 1px rgba(0,0,0,0.2);}
 .add-board .form-title, .edit-user .form-title { font-size: 1.2em; font-weight: bolder; margin-bottom: 12px; }
 .add-board .content, .edit-user .content {padding: 20px 15px; }
 .add-board label , .edit-user label, .edit-user p { color: #000; display: block; width: auto; }
@@ -60,13 +60,14 @@ section { padding: 0 20px 20px 20px; }
 .add-board input[type="text"], .edit-user input[type="text"], .edit-user input[type="email"], .edit-user input[type="password"], .card input[type="text"], .card textarea { padding: 2px 0 0 0; height: 32px; }
 .card textarea { height: 40px; }
 
-.todo-interface.container { max-width: 80%; margin: 10px auto; background-color: transparent; border-radius: 0; box-shadow: 0 0 0 transparent; padding: 0 20px;}
+.todo-interface { margin: 10px auto; background-color: transparent; border-radius: 0; box-shadow: 0 0 0 transparent; padding: 0 20px;}
 .todo-interface .container__header { text-align: center; font-size: 1.3em; font-weight: bold; }
-.todo-interface .container__description { margin-bottom: 2.5em; text-align: center; }
-.todo-interface .list__item, .todo-interface input, .todo-interface textarea { padding: 1em; }
-.todo-interface input[type="text"], .todo-interface textarea {width: 80%; display: block; box-shadow: inset 1px 1px 3px 0px rgba(134, 134, 134, 0.21);border: 1px solid #C5C5C5;}
-.todo-interface textarea { margin-top: 20px; }
+.todo-interface .container__description { margin-bottom: 20px; text-align: center; }
+.todo-interface .list__item, .todo-interface input[type="text"], .todo-interface button { padding: 1em; }
+.todo-interface input[type="text"], .todo-interface button {vertical-align: middle; display: inline-block; box-shadow: inset 1px 1px 3px 0px rgba(134, 134, 134, 0.21);border: 1px solid #C5C5C5; }
+.todo-interface button { box-shadow: 0 0 0 0; margin: 0; border: 0 none; }
 .todo-interface .list__item { margin-bottom: 0.5em; background-color: white; border: 1px solid #C5C5C5; border-radius: 3px; backface-visibility: hidden; box-shadow: 1px 1px 3px 0px rgba(134, 134, 134, 0.21); animation-duration: 1s; animation-fill-mode: forwards; }
+.todos { margin-top: 12px; }
 
 .error {color: #ff3333;}
 
@@ -80,8 +81,22 @@ section { padding: 0 20px 20px 20px; }
 .hidden { display: none; }
 
 .clearfix {float: none;clear: both;}
-
 .clearfix::after, .clearfix::before {content: "";width: 100%;display: table;}
 
 .completed { text-decoration: line-through; }
 .badge { cursor: pointer; }
+
+.hidden-xs {display: block; }
+.hidden-md {display: none; }
+
+@media screen and (max-width: 640px) {
+    .nav-list li {display: block; margin-top: 5px; }
+    .nav-list li:first-child { margin-top: 0; }
+    .nav-list li a.button { display: inline-block; }
+    .fl-right, .fl-left { float: none; clear: both; }
+    .todo-interface.container { width: 100%; padding: 0px 5px; margin: 0 auto; max-width: 90%; }
+    .todo-interface input[type="text"] { width: 90%; }
+    .todo-interface input[type="text"] + .todo-interface input[type="text"] { margin-top: 5px; }
+    .hidden-xs {display: none; }
+    .hidden-md {display: block; }
+}

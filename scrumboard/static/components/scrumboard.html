@@ -1,13 +1,28 @@
 <div class="ui interface">
     <nav class="navbar board">
-        <ul class="nav-list">
-            <li><a class="brand-logo" href="#!">Scrumy</a></li>
-            <li ng-if="currentUser">Hello {{ currentUser.username }} !</li>
-            <li><button ng-click="editUser=true" class="button"><i class="fas fa-user"></i> Edit User Informations</button></li>
-            <li><button ng-click="addBoard()" class="button"><i class="fas fa-plus"></i> Add a board</button></li>
-            <li><button ng-click="logout()" class="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
-            <li class="fl-right"><a href="#!todo" class="button">Go To Taskr <i class="fas fa-chevron-right"></i></a></li>
-        </ul>
+        <div class="hidden-xs">
+            <ul class="nav-list">
+                <li><a class="brand-logo" href="#!">Scrumy</a></li>
+                <li ng-if="currentUser">Hello {{ currentUser.username }} !</li>
+                <li><button ng-click="editUser=true" class="button"><i class="fas fa-user"></i> Edit User Informations</button></li>
+                <li><button ng-click="addBoard()" class="button"><i class="fas fa-plus"></i> Add a board</button></li>
+                <li><button ng-click="logout()" class="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                <li class="fl-right"><a href="#!todo" class="button">Go To Taskr <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+        <div class="hidden-md">
+            <span>
+                <button class="button little" type="button" ng-init="navCollapsed = false" ng-click="navCollapsed = !navCollapsed"><i class="fas fa-bars"></i></button>
+            </span>
+            <a class="brand-logo" href="#!">Scrumy</a>
+            <ul class="nav-list" ng-show="navCollapsed">
+                <li ng-if="currentUser">Hello {{ currentUser.username }} !</li>
+                <li><button ng-click="editUser=true" class="button"><i class="fas fa-user"></i> Edit User Informations</button></li>
+                <li><button ng-click="addBoard()" class="button"><i class="fas fa-plus"></i> Add a board</button></li>
+                <li><button ng-click="logout()" class="button"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+                <li class="fl-right"><a href="#!todo" class="button">Go To Taskr <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
     </nav>
 
     <div class="lists">
