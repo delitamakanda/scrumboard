@@ -39,7 +39,10 @@ section { padding: 0 20px 20px 20px; }
 .list ul li { background: #fff; padding: 10px; border-radius: 3px; box-shadow: 0 1px 1px rgba(0,0,0,0.1);}
 .list ul li:not(:last-child) {margin-bottom: 10px;}
 
-.add-board, .edit-user { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 98; background-color: #ffffff; max-width: 520px; width: 100%; border-radius: 4px; box-shadow: 0 1px 1px 1px rgba(0,0,0,0.2);}
+.add-board, .edit-user, .todo-interface { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 98; background-color: #ffffff; max-width: 520px; width: 100%; border-radius: 4px; box-shadow: 0 1px 1px 1px rgba(0,0,0,0.2);}
+.todo-interface { background-color: #ffffff; border-radius: 4px; }
+.todo-interface .content { padding: 20px; }
+.todo-interface .content .fixed-height { height: 450px; overflow-x: hidden; overflow-y: auto; }
 .add-board .form-title, .edit-user .form-title { font-size: 1.2em; font-weight: bolder; margin-bottom: 12px; }
 .add-board .content, .edit-user .content {padding: 20px 15px; }
 .add-board label , .edit-user label, .edit-user p { color: #000; display: block; width: auto; }
@@ -60,7 +63,6 @@ section { padding: 0 20px 20px 20px; }
 .add-board input[type="text"], .edit-user input[type="text"], .edit-user input[type="email"], .edit-user input[type="password"], .card input[type="text"], .card textarea { padding: 2px 0 0 0; height: 32px; }
 .card textarea { height: 40px; }
 
-.todo-interface { margin: 10px auto; background-color: transparent; border-radius: 0; box-shadow: 0 0 0 transparent; padding: 0 20px;}
 .todo-interface .container__header { text-align: center; font-size: 1.3em; font-weight: bold; }
 .todo-interface .container__description { margin-bottom: 20px; text-align: center; }
 .todo-interface .list__item, .todo-interface input[type="text"], .todo-interface button { padding: 1em; }
@@ -88,6 +90,8 @@ section { padding: 0 20px 20px 20px; }
 
 .hidden-xs {display: block; }
 .hidden-md {display: none; }
+
+.pointer { cursor: pointer; }
 
 @media screen and (max-width: 640px) {
     .nav-list li {display: block; margin-top: 5px; }

@@ -3,9 +3,9 @@
 
     angular.module('scrumboard', ['ngRoute'])
         .controller('ScrumboardController', ScrumboardController,
-        ['$scope', '$http', '$location', '$window', 'Login', ScrumboardController]);
+        ['$scope', '$http', '$location', '$window', 'Login', 'Todos', ScrumboardController]);
 
-        function ScrumboardController($scope, $http, $location, $window, Login){
+        function ScrumboardController($scope, $http, $location, $window, Login, Todos){
             // add card to the list
             $scope.add = function(list, title) {
                 var card = {
@@ -89,6 +89,33 @@
                 );
             }
 
+            // Todos
+            $scope.newTodo = {};
 
+            $scope.addTodo = function() {
+                Todos.createTodo($scope.newTodo)
+                    .then(function(res) {
+                        $scope.todos.push(res.data);
+                        $scope.newTodo.name = '';
+                        $scope.newTodo.text = '';
+                    }, function(error) {
+                        console.log('error', error);
+                    });
+            };
+
+            $scope.toggleCompleted = function(todo) {
+                Todos.updateTodo(todo);
+            }
+
+            $scope.deletedTodo = function(id) {
+                Todos.deleteTodo(id);
+                $scope.todos = $scope.todos.filter(function(todo) {
+                    return todo.id !== id;
+                })
+            }
+
+            Todos.getTodos().then(function(res) {
+                return $scope.todos = res.data;
+            });
         }
 }());
