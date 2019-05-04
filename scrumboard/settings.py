@@ -161,5 +161,5 @@ MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 
 STORED_MESSAGES = {
     'STORAGE_BACKEND': 'stored_messages.backends.DefaultBackend',
-    'REDIS_URL': config('REDIS_URL'),
+    # 'REDIS_URL': config('REDIS_URL'),
 }
