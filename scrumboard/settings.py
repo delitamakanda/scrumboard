@@ -54,7 +54,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,6 +160,5 @@ REST_FRAMEWORK = {
 MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 
 STORED_MESSAGES = {
-    'STORAGE_BACKEND': 'stored_messages.backends.DefaultBackend',
-    'REDIS_URL': 'redis://localhost:6379/0',
+    'REDIS_URL': config('REDIS_URL'),
 }

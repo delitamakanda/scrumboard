@@ -7,8 +7,6 @@ DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-ALLOWED_HOSTS = ['.herokuapp',]
-
 DEBUG = config('DEBUG', cast=bool)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
@@ -43,9 +41,4 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
-}
-
-STORED_MESSAGES = {
-    'STORAGE_BACKEND': 'stored_messages.backends.redis',
-    'REDIS_URL': os.environ.get('REDIS_URL'),
 }
