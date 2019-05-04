@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Paris'
 
@@ -144,7 +144,7 @@ LOGIN_REDIRECT_URL = 'scrumboard'
 #     ('Delita Makanda', 'delita.makanda@gmail.com')
 # ]
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
@@ -160,6 +160,6 @@ REST_FRAMEWORK = {
 MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 
 STORED_MESSAGES = {
-    'STORAGE_BACKEND': 'stored_messages.backends.redis',
+    #'STORAGE_BACKEND': 'stored_messages.backends.redis',
     'REDIS_URL': config('REDISTOGO_URL')
 }
