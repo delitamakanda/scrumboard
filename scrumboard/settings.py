@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 # CORS_ALLOW_CREDENTIALS = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*']
 
 SERVER_EMAIL = 'scrumy-app@herokuapp.com'
 
@@ -161,5 +161,5 @@ MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 
 STORED_MESSAGES = {
     # 'STORAGE_BACKEND': 'stored_messages.backends.redis',
-    'REDIS_URL': config('REDISTOGO_URL'),
+    'REDIS_URL': config('REDISTOGO_URL')
 }
