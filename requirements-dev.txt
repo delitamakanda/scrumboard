@@ -4,3 +4,4 @@ whitenoise==3.2.3
 dj-static==0.0.6
 djangorestframework
 python-decouple==3.1
+django-stored-messages==1.4.0

@@ -6,6 +6,40 @@
         ['$scope', '$http', '$location', '$window', 'Login', 'Todos', ScrumboardController]);
 
         function ScrumboardController($scope, $http, $location, $window, Login, Todos){
+
+            // notifications
+            $scope.messages = {};
+
+            $http.get('/message_api/inbox/')
+            .then(function(response) {
+                $scope.messages = response.data;
+                console.log($scope.messages);
+            }, function(error) {
+                console.log(error);
+            });
+
+            $scope.markRead = function(index) {
+                var id = $scope.messages[index].id;
+
+                $http.post('/message_api/inbox/' + id + '/read/')
+                .then(function(response) {
+                    $scope.messages.splice(index, 1);
+                }, function(error) {
+                    console.log(error);
+                });
+            }
+
+            $scope.markAllRead = function(index) {
+                var id = $scope.messages[index].id;
+
+                $http.post('/message_api/mark_all_read/')
+                .then(function(response) {
+                    $scope.messages.splice(0, $scope.messages.length);
+                }, function(error) {
+                    console.log(error);
+                });
+            }
+
             // add card to the list
             $scope.add = function(list, title) {
                 var card = {
@@ -73,6 +107,11 @@
             // fetch all of your lists and cards
             $http.get('/scrumboard/lists').then(function(response){
                 $scope.data = response.data;
+
+                $http.get('/message_api/inbox/')
+                .then(function(response) {
+                    $scope.messages = response.data;
+                });
             });
 
             // fetch user by id
@@ -115,7 +154,14 @@
             }
 
             Todos.getTodos().then(function(res) {
-                return $scope.todos = res.data;
+                $scope.todos = res.data;
+
+                $http.get('/message_api/inbox/')
+                .then(function(response) {
+                    $scope.messages = response.data;
+                });
+
+                return $scope.todos;
             });
         }
 }());

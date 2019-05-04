@@ -3,11 +3,15 @@ from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from rest_framework.generics import CreateAPIView
+from django.contrib.messages import add_message
+from django.utils.translation import gettext as _
 
 from rest_framework import status, views, permissions
 from rest_framework.response import Response
 from django.shortcuts import HttpResponse
+
 import json
+import stored_messages
 
 from .serializers import UserSerializer
 

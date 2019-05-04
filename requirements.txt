@@ -9,3 +9,4 @@ requests==2.13.0
 djangorestframework
 python-decouple==3.1
 awsebcli==3.14.1
+django-stored-messages==1.4.0

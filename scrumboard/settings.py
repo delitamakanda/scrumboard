@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'stored_messages',
     'rest_framework',
     #'rest_framework.authtoken',
     'mini_url',
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,7 +145,7 @@ ADMINS = [
     ('Delita Makanda', 'delita.makanda@gmail.com')
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
@@ -153,4 +155,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     )
+}
+
+# messages
+MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
+
+STORED_MESSAGES = {
+    'STORAGE_BACKEND': 'stored_messages.backends.DefaultBackend',
+    'REDIS_URL': 'redis://localhost:6379/0',
 }

@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^scrumboard/', include('mini_url.urls')),
     url(r'^auth_api/', include('auth_api.urls')),
+    url(r'^message_api/', include('stored_messages.urls')),
     url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name='index.html'))),
     # url(r'^api-token-auth/', obtain_auth_token),
 ]
