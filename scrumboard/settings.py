@@ -31,7 +31,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-SERVER_EMAIL = 'scrumy-app@herokuapp.com'
+# SERVER_EMAIL = 'scrumy-app@herokuapp.com'
 
 # Application definition
 
@@ -140,9 +140,9 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = 'scrumboard'
 
-ADMINS = [
-    ('Delita Makanda', 'delita.makanda@gmail.com')
-]
+# ADMINS = [
+#     ('Delita Makanda', 'delita.makanda@gmail.com')
+# ]
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
