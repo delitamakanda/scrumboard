@@ -41,6 +41,6 @@ REST_FRAMEWORK = {
 }
 
 STORED_MESSAGES = {
-    'STORAGE_BACKEND': 'stored_messages.backends.DefaultBackend',
+    'STORAGE_BACKEND': 'stored_messages.backends.redis',
     'REDIS_URL': os.environ.get('REDIS_URL'),
 }
