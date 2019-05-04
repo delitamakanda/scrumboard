@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 CORS_ALLOW_CREDENTIALS = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['*',]
 
 SERVER_EMAIL = 'scrumy-app@herokuapp.com'
 
