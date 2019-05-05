@@ -13,14 +13,14 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # STATIC_ROOT = 'static'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = config('SMTP_PORT')
-# EMAIL_HOST_USER = config('MAIL_USERNAME')
-# EMAIL_HOST_PASSWORD = config('MAIL_PASSWORD')
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_TIMEOUT = 500
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('SENDGRID_SERVER')
+EMAIL_PORT = config('SENDGRID_PORT')
+EMAIL_HOST_USER = config('SENDGRID_USERNAME')
+EMAIL_HOST_PASSWORD = config('SENDGRID_PASSWORD')
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_TIMEOUT = 500
 
 # DATABASES = {
 #     'default': {
