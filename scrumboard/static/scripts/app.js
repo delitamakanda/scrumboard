@@ -9,11 +9,13 @@
             // notifications
             $scope.messages = [];
 
-            $http.get('/message_api/inbox/')
-            .then(function(response) {
-                $scope.messages = response.data;
-                console.log($scope.messages);
-            });
+            $scope.getMessages = function() {
+                $http.get('/message_api/inbox/')
+                .then(function(response) {
+                    $scope.messages = response.data;
+                    console.log($scope.messages);
+                });
+            }
 
             $scope.markRead = function(index) {
                 var id = $scope.messages[index].id;
@@ -26,8 +28,7 @@
                 });
             }
 
-            $scope.markAllRead = function(index) {
-                var id = $scope.messages[index].id;
+            $scope.markAllRead = function() {
 
                 $http.post('/message_api/mark_all_read/')
                 .then(function(response) {
