@@ -7,4 +7,4 @@ scrumboard app from Pluralsight courses
 
 # Continuous integration
 
-[ ![Codeship Status for delitamakanda/scrumy](https://app.codeship.com/projects/3378b210-56c2-0136-0a1a-5ae1f167f9dd/status?branch=master)](https://app.codeship.com/projects/294826)
+[![Codeship Status for delitamakanda/scrumboard](https://app.codeship.com/projects/6349f920-5185-0137-1eca-7ebbefffb6b5/status?branch=master)](https://app.codeship.com/projects/340125)
