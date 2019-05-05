@@ -159,7 +159,7 @@ REST_FRAMEWORK = {
 # messages
 MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
 
-STORED_MESSAGES = {
+# STORED_MESSAGES = {
     # 'STORAGE_BACKEND': 'stored_messages.backends.redis',
     # 'REDIS_URL': config('REDISTOGO_URL')
-}
+# }
