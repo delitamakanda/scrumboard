@@ -44,10 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'stored_messages',
     'rest_framework',
     #'rest_framework.authtoken',
-    'mini_url',
+    #'mini_url',
+    'kanban',
     'auth_api',
 ]
 
@@ -75,7 +75,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.i18n',
-                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -155,11 +154,3 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     )
 }
-
-# messages
-MESSAGE_STORAGE = 'stored_messages.storage.PersistentStorage'
-
-# STORED_MESSAGES = {
-    # 'STORAGE_BACKEND': 'stored_messages.backends.redis',
-    # 'REDIS_URL': config('REDISTOGO_URL')
-# }

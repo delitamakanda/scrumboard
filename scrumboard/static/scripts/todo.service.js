@@ -11,19 +11,19 @@
         this.createTodo = createTodo;
 
         function getTodos() {
-            return $http.get('/scrumboard/todos');
+            return $http.get('/kanbanboard/todos');
         }
 
         function updateTodo(updatedTodo) {
-            return $http.put('/scrumboard/todos/' + updatedTodo.id + '/', updatedTodo);
+            return $http.put('/kanbanboard/todos/' + updatedTodo.id + '/', updatedTodo);
         }
 
         function deleteTodo(id) {
-            return $http.delete('/scrumboard/todos/' + id + '/');
+            return $http.delete('/kanbanboard/todos/' + id + '/');
         }
 
         function createTodo(newTodo) {
-            return $http.post('/scrumboard/todos/', newTodo)
+            return $http.post('/kanbanboard/todos/', newTodo)
         }
     }
 })();

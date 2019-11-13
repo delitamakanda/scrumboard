@@ -18,13 +18,10 @@ from django.contrib import admin
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic import TemplateView
 from django.conf import settings
-# from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^scrumboard/', include('mini_url.urls')),
+    url(r'^kanbanboard/', include('kanban.urls')),
     url(r'^auth_api/', include('auth_api.urls')),
-    url(r'^message_api/', include('stored_messages.urls')),
     url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name='index.html'))),
-    # url(r'^api-token-auth/', obtain_auth_token),
 ]
