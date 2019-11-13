@@ -16,7 +16,7 @@ from django.utils.translation import gettext as _
 from .serializers import ListSerializer, CardSerializer, UsersSerializer, TodoSerializer
 from .models import Card, List, Todo
 from django.contrib.auth.models import User
-from mini_url.permissions import IsUserOfPost, IsAdminUser, IsAdminOrReadOnly
+from .permissions import IsUserOfPost, IsAdminUser, IsAdminOrReadOnly
 
 import stored_messages
 
