@@ -1,13 +1,19 @@
+import datetime
+
 from rest_framework import serializers
 from .models import List, Card, Todo
 from django.contrib.auth.models import User
 
 
 class CardSerializer(serializers.ModelSerializer):
+    tag_name = serializers.SerializerMethodField()
 
     class Meta:
         model = Card
         fields = '__all__'
+
+    def get_tag_name(self, obj):
+        return obj.get_tag_display()
 
 
 class TodoSerializer(serializers.ModelSerializer):
