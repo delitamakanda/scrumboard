@@ -1,30 +1,44 @@
-<div class="container">
-
-    <div class="fieldset text-center header">
-        <i class="icon fas fa-users"></i>
-        <h2>Create an account </h2>
-        <p>It's free and it takes less than 10 seconds</p>
-    </div>
-
-    <div class="fieldset form">
-        <form ng-submit="signup()" class="form form-signup">
-
-            <div class="error">
-                {{ signup_error }}
+<div class="relative overflow-hidden mb-8">
+    <div class="bg-white rounded-t-lg overflow-hidden border-t border-l border-r border-gray-400 p-4 flex justify-center p-8">
+        <form ng-submit="signup()" class="w-full max-w-sm">
+            <h2 class="text-left text-purple-500 text-2xl">Sign Up</h2>
+            <p class="text-left text-gray-500 text-xs">It's free and it takes less than 10 seconds</p>
+            <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="username">
+                        Username
+                    </label>
+                </div>
+                <div class="md:w-2/3">
+                    <input ng-model="username" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="username" type="text" placeholder="John Doe">
+                </div>
             </div>
 
-            <label>Username</label>
-            <input type="text" ng-model="username" />
-
-            <label>Password</label>
-            <input type="password" ng-model="password" />
-
-            <button type="submit">Signup</button>
-
-            <div class="text-center">
-                <p>Already an account ? Please <a href="#!login">Login</a>.</p>
+            <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="password">
+                        Password
+                    </label>
+                    </div>
+                    <div class="md:w-2/3">
+                    <input ng-model="password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
+                    <p class="text-red-500 text-xs italic">
+                        {{ signup_error }}
+                    </p>
+                </div>
             </div>
-
+            <div class="md:flex md:items-center">
+                <div class="md:w-1/3"></div>
+                <div class="md:w-2/3">
+                <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                    Sign Up
+                </button>
+                </div>
+            </div>
+        
+            <p class="text-center text-gray-500 text-xs">
+                Already an account ? Please <a href="#!login" class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800">Login</a>.
+            </p>
         </form>
     </div>
 </div>

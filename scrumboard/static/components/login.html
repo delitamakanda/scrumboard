@@ -1,30 +1,42 @@
-<div class="container">
-
-    <div class="fieldset text-center header">
-        <i class="icon fas fa-users"></i>
-        <h2>Login</h2>
-    </div>
-
-    <div class="fieldset form">
-
-        <form ng-submit="login()" class="form form-login">
-
-            <div class="error">
-                {{ login_error }}
+<div class="relative overflow-hidden mb-8">
+    <div class="bg-white rounded-t-lg overflow-hidden border-t border-l border-r border-gray-400 p-4 flex justify-center p-8">
+        <form class="w-full max-w-sm" ng-submit="login()">
+            <h2 class="text-left text-purple-500 text-2xl">Log In</h2>
+            <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="username">
+                    Username
+                </label>
+                </div>
+                <div class="md:w-2/3">
+                <input ng-model="user.username" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="username" type="text" placeholder="John Doe">
+                </div>
             </div>
-
-            <label for="username">Username</label>
-            <input type="text" id="username" ng-model="user.username" />
-
-
-            <label for="password">Password</label>
-            <input type="password" id="password" ng-model="user.password" />
-
-            <button type="submit">Login</button>
-
-            <div class="text-center">
-                <p>Or <a href="#!signup">Signup</a> to create an account.</p>
+            <div class="md:flex md:items-center mb-6">
+                <div class="md:w-1/3">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="password">
+                    Password
+                </label>
+                </div>
+                <div class="md:w-2/3">
+                <input ng-model="user.password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
+                <p class="text-red-500 text-xs italic">
+                    {{ login_error }}
+                </p>
             </div>
+            </div>
+            <div class="md:flex md:items-center">
+                <div class="md:w-1/3"></div>
+                <div class="md:w-2/3">
+                <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                    Log In
+                </button>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-xs">
+                Or <a href="#!signup" class="inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800">Sign Up</a> to create an account.
+            </p>
         </form>
     </div>
 </div>
+

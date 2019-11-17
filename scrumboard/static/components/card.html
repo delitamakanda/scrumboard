@@ -1,38 +1,70 @@
 <div class="card" ng-hide="edit" ng-click="edit=true">
-    <h4> {{ card.title }}</h4>
-    <span>{{ card.description }}</span>
-    <div>
-        <div>Extra: {{ card.extra }}</div>
-        <div>Story points: {{ card.story_points }}</div>
-        <div>Business value: {{ card.business_value }}</div>
+    <div class="flex justify-between">
+        <p class="text-sm font-medium text-gray-900 leading-tight"> {{ card.title }}</p>
+        <span>
+            <i class="fas fa-user text-gray-500"></i>
+        </span>
+    </div>
+    <div class="flex justify-between">
+        <div class="text-sm text-gray-600">
+            <time datetime="{{ card.created }}">{{ card.created }}</time>
+        </div>
+        <div class="mt-2">
+            <span class="inline-flex items-center rounded px-2 py-1 leading-tight" ng-style="{'background-color': card.tag }">
+                <svg viewbox="0 0 8 8" fill="currentColor" class="h-2 w-2 text-gray-900">
+                    <circle cx="4" cy="4" r="3" />  
+                </svg>
+                <span class="text-sm font-medium ml-2">{{ card.tag_name }}</span>
+            </span>
+        </div>
+    </div>
+    <div class="flex justify-between">
+        
     </div>
 </div>
 
 <div class="card" ng-show="edit" ng-model-options="modelOptions">
-    <div>
-        <label>Title:</label>
-        <input type="text" ng-model="card.title" ng-change="update()" />
+     <div>
+        <p ng-if="card.description" class="text-sm font-medium text-gray-900 leading-tight">{{ card.description }}</p>
+        <p ng-if="card.extra" class="text-sm font-medium text-gray-900">Extra : {{ card.extra }}</p>
+        <p ng-if="card.story_points" class="text-sm font-medium text-gray-900">Story points : {{ card.story_points }}</p>
+        <p ng-if="card.business_value" class="text-sm font-medium text-gray-900">Business value : {{ card.business_value }}</p>
     </div>
     <div>
-        <label>Description:</label>
-        <textarea ng-model="card.description" ng-change="update()" placeholder="Enter description..."></textarea>
+        <label class="text-sm font-medium text-gray-500">Title :</label>
+        <input class="block w-full rounded-lg border border-gray-400 pr-4 pl-3 py-2 text-gray-900 text-sm placeholder-gray-500" type="text" ng-model="card.title" ng-change="update()" />
     </div>
     <div>
-        <label>Extra:</label>
-        <input type="text" ng-model="card.extra" ng-change="update()" />
+        <label class="text-sm font-medium text-gray-500">Description :</label>
+        <textarea class="block w-full rounded-lg border border-gray-400 pr-4 pl-3 py-2 text-gray-900 text-sm placeholder-gray-500" ng-model="card.description" ng-change="update()" placeholder="Enter description..."></textarea>
     </div>
     <div>
-        <label>Story points:</label>
-        <input type="text" ng-model="card.story_points" ng-change="update()" />
+        <label class="text-sm font-medium text-gray-500">Extra :</label>
+        <input class="block w-full rounded-lg border border-gray-400 pr-4 pl-3 py-2 text-gray-900 text-sm placeholder-gray-500" type="text" ng-model="card.extra" ng-change="update()" />
     </div>
     <div>
-        <label>Business value:</label>
-        <input type="text" ng-model="card.business_value" ng-change="update()" />
+        <label class="text-sm font-medium text-gray-500">Story points :</label>
+        <input class="block w-full rounded-lg border border-gray-400 pr-4 pl-3 py-2 text-gray-900 text-sm placeholder-gray-500" type="number" ng-model="card.story_points" ng-change="update()" />
     </div>
-    <div>
-        <button ng-click="edit=false" class="button little"><i class="fas fa-close"></i>Close</button>
-        <button ng-click="delete()" class="button little">Delete card</button>
-        <select ng-options="list as list.name for list in data" ng-model="destList"></select>
-        <button ng-click="move()" class="button little">Move</button>
+    <div class="mb-5">
+        <label class="text-sm font-medium text-gray-500">Business value :</label>
+        <input class="block w-full rounded-lg border border-gray-400 pr-4 pl-3 py-2 text-gray-900 text-sm placeholder-gray-500" type="number" ng-model="card.business_value" ng-change="update()" />
+    </div>
+    <div class="flex justify-between">
+        <div class="inline-flex flex-1">
+            <button ng-click="edit=false" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded inline-flex items-center"><i class="fas fa-times"></i><span class="ml-2">Close</span></button>
+            <button ng-click="delete()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded inline-flex items-center ml-1"><i class="fas fa-trash"></i><span class="ml-2">Delete</span></button>
+        </div>
+        <div class="flex items-center">
+            <div class="inline-block relative w-64">
+                <select ng-options="list as list.name for list in data" ng-model="destList"  class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 ml-1 px-2 py-1 pr-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+            </div>
+            <button ng-click="move()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded inline-flex items-center ml-1"><i class="fas fa-exchange-alt"></i><span class="ml-2">Move</span></button>
+        </div>
+        
     </div>
 </div>
