@@ -15,3 +15,4 @@
 * [https://www.andreagrandi.it/](https://www.andreagrandi.it/)
 * [oreilly](https://www.safaribooksonline.com/library/view/lightweight-django/9781491946275/ch04.html)
 * https://github.com/masci/notification_example/blob/master/notification/static/notification/notification.js
+* https://tailwindcss.com/course/making-the-dropdown-interactive

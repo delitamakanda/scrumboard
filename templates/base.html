@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'styles/vendors/tailwindcss/tailwind.min.css' %}" rel="stylesheet">
     <link href="{% static 'styles/vendors/fontawesome/all.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles/app.css' %}">
     <meta name="description" content="A personnal task board for you and your team" />
     <meta name="keywords" content="scrumboard, kanban, task board, todos">
 </head>
 
-<body>
+<body class="bg-gray-200 text-gray-900 antialised font-sans">
   {% block body_content %}{% endblock %}
 
   <script src="{% static 'vendor/jquery.js' %}"></script>
