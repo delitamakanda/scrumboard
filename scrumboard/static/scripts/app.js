@@ -60,15 +60,16 @@
             $scope.hideBoard = function() {
                 $scope.showAddBoard=false;
             }
-
+            
             Login.redirectedIfNotLoggedIn();
             $scope.data = [];
             $scope.userData = [];
             $scope.logout = Login.logout;
-            $scope.sortBy='story_points';
-            $scope.reverse=true;
-            $scope.showFilters=false;
-            $scope.showAddBoard=false;
+            $scope.sortBy = 'story_points';
+            $scope.reverse = true;
+            $scope.showFilters = false;
+            $scope.showAddBoard = false;
+            $scope.sidebarOpen = false;
             $scope.currentUser = JSON.parse(localStorage.currentUser);
 
             // fetch all of your lists and cards

@@ -7,7 +7,7 @@
     </div>
     <div class="flex justify-between">
         <div class="text-sm text-gray-600">
-            <time datetime="{{ card.created }}">{{ card.created }}</time>
+            <time datetime="{{ card.created }}">{{ card.created | date :  "MMM d" }}</time>
         </div>
         <div class="mt-2">
             <span class="inline-flex items-center rounded px-2 py-1 leading-tight" ng-style="{'background-color': card.tag }">

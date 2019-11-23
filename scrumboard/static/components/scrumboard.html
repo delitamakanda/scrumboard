@@ -1,6 +1,14 @@
-<div class="flex h-screen overflow-hidden" id="app">
-    <div class="w-64 px-8 py-4 bg-gray-100 border-r overflow-hidden">
-        <!--<img src="/" class="h-9 w-9" alt="">-->
+<div class="flex h-screen" id="app">
+    <div ng-class="sidebarOpen ? 'block': 'hidden'" class="fixed inset-0 lg:hidden transition-opacity bg-black opacity-50"></div>
+    <div ng-show="sidebarOpen" ng-class="sidebarOpen ? 'translate-x-0 ease-out transition-medium' : '-translate-x-full ease-in transition-medium'" class="fixed z-30 inset-y-0 left-0 w-64 px-8 py-4 bg-gray-100 border-r overflow-auto lg:static lg:inset-auto lg:translate-x-0">
+        <div class="-mx-3 pl-3 pr-1 flex items-center justify-between">
+            <span>
+                <!--<img src="/" class="h-9 w-9" alt="">-->
+            </span>
+            <button type="button" class="text-gray-700 lg:hidden" ng-click="sidebarOpen = !sidebarOpen">
+                <i class="fas fa-times text-gray-500"></i>
+            </button>
+        </div>
         <nav class="mt-8">
             <h3 class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Boards</h3>
             <div class="mt-2 -mx-3">
@@ -47,48 +55,63 @@
             </button>
         </nav>
     </div>
-    <div class="flex flex-1 flex-col min-w-0 bg-white overflow-hidden">
-        <div class="border-b-2 border-gray-200 flex-shrink-0">
-            <header class="px-6">
-                <div class="flex justify-between py-3 items-center border-b border-gray-200">
-                    <div class="flex-1">
-                        <div class="relative w-64">
-                            <span class="absolute inset-y-0 left-0 flex pl-3 items-center">
-                                <i class="fas fa-search text-gray-500"></i>
-                            </span>
-                            <input type="text" placeholder="Search" class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" name="search" id="search">
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <button type="button">
-                            <i class="fas fa-bell text-gray-500"></i>
-                        </button>
-                        <button type="button" class="ml-6" ng-if="currentUser" title="{{ currentUser.username }}">
-                            <i class="fas fa-user text-gray-500"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="ml-6 flex items-center justify-between py-2">
-                    <div class="flex items-center">
-                        <h2 class="text-2xl font-semibold text-gray-900 leading-tight">All Issues</h2>
-                        <div class="ml-6 flex items-center">
-                            
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="inline-flex p-1 border bg-gray-200 rounded-md">
-                            <button type="button" class="px-2 py-1 rounded">
+    <div class="flex flex-1 flex-col min-w-0 bg-white">
+        <div class="sm:border-b-2 border-b sm:border-gray-200 flex-shrink-0">
+            <header>
+                <div class="px-6 ">
+                    <div class="flex justify-between px-6 py-3 items-center border-b border-gray-200">
+                        <div class="flex-1 flex min-w-0">
+                            <button type="button" class="text-gray-600" ng-click="sidebarOpen = !sidebarOpen">
                                 <i class="fas fa-bars text-gray-500"></i>
                             </button>
-                            <button type="button" class="px-2 py-1 bg-white rounded shadow">
-                                <i class="fas fa-th text-gray-500"></i>
+                            <div class="flex-shrink-1 ml-3 relative w-64">
+                                <span class="absolute inset-y-0 left-0 flex pl-3 items-center">
+                                    <i class="fas fa-search text-gray-500"></i>
+                                </span>
+                                <input type="text" placeholder="Search" class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" name="search" id="search">
+                            </div>
+                        </div>
+                        <div class="ml-6 flex-shrink-0 flex items-center">
+                            <button type="button">
+                                <i class="fas fa-bell text-gray-600"></i>
                             </button>
-                        </span>
-                        <button type="button" class="flex items-center text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 rounded-lg pl-2 pr-4 py-2 ml-5">
-                            <i class="fas fa-plus text-white"></i> 
-                            <span class="ml-1">New Board</span>
-                        </button>
+                            <button type="button" class="ml-6" ng-if="currentUser" title="{{ currentUser.username }}">
+                                <i class="fas fa-user text-gray-600"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="px-6 flex items-center justify-between py-2">
+                        <div class="sm:flex sm:items-center">
+                            <h2 class="text-2xl font-semibold text-gray-900 leading-tight">All Issues</h2>
+                            <div class="sm:ml-6 sm:mt-0 mt-1 flex items-center">
+                                
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <span class="hidden sm:inline-flex p-1 border bg-gray-200 rounded-md">
+                                <button type="button" class="px-2 py-1 rounded">
+                                    <i class="fas fa-bars text-gray-500"></i>
+                                </button>
+                                <button type="button" class="px-2 py-1 bg-white rounded shadow">
+                                    <i class="fas fa-th text-gray-500"></i>
+                                </button>
+                            </span>
+                            <button type="button" class="flex items-center text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 rounded-lg pl-2 pr-4 py-2 ml-5">
+                                <i class="fas fa-plus text-white"></i> 
+                                <span class="ml-1">New Board</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sm:hidden flex px-4 p-1 border-t border-b bg-gray-200">
+                    <button type="button" class="inline-flex items-center justify-center w-1/2 py-1 rounded">
+                        <i class="fas fa-bars text-gray-600"></i>
+                        <span class="text-sm leading-none ml-2 font-medium text-gray-900">List</span>
+                    </button>
+                    <button type="button" class="inline-flex items-center justify-center w-1/2 py-1 bg-white rounded shadow">
+                        <i class="fas fa-th text-gray-600"></i>
+                        <span class="text-sm leading-none  ml-2 font-medium text-gray-900">Board</span>
+                    </button>
                 </div>
             </header>
         </div>
@@ -97,7 +120,7 @@
                 <div class="bg-gray-100 rounded-lg w-80 ml-3 p-3 flex flex-col py-3" ng-repeat="list in data">
                     <h3 class="text-sm px-3 pt-3 pb-1 flex-shrink-0 font-medium text-gray-700">{{ list.name }} </h3>
                     <div class="flex-1 min-h-0 overflow-y-auto">
-                        <ul class="mt-2 px-3 pb-3">
+                        <ul class="mt-2  pb-3">
                             <li class="mt-3 block rounded-lg shadow bg-white p-5" ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
                                 <scrumboard-card></scrumboard-card>
                             </li>
