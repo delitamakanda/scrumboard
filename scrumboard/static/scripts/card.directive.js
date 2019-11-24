@@ -16,8 +16,13 @@
                     return $http.put(
                         url,
                         $scope.card
-                    );
+                    ).then(function(response) {
+                        $scope.card = response.data;
+                    }, function(err) {
+                        console.warn(err);
+                    });
                 };
+                
 
 
                 function removeCardFromList(card, list) {

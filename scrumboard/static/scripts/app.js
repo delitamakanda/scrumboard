@@ -53,12 +53,12 @@
 
 
             //show hide popin
-            $scope.addBoard = function(key, index) {
-                $scope.showAddBoard=true;
+            $scope.addBoard = function() {
+                $scope.showAddBoard = true;
             }
 
             $scope.hideBoard = function() {
-                $scope.showAddBoard=false;
+                $scope.showAddBoard = false;
             }
             
             Login.redirectedIfNotLoggedIn();
