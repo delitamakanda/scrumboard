@@ -1,0 +1,11 @@
+.center {
+    left: 50%;
+    top: 50%;
+    margin: -200px auto auto -150px;
+}
+
+.overlap {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
