@@ -20,6 +20,10 @@
                 templateUrl: '/static/components/signup.html',
                 controller: 'SignupController'
             })
+            .when('/tasks', {
+                templateUrl: '/static/components/todos.html',
+                controller: 'TodoController'
+            })
             .otherwise('/')
     }
 
