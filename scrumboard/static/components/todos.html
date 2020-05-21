@@ -40,7 +40,12 @@
                                 <span class="absolute inset-y-0 left-0 flex pl-3 items-center">
                                     <i class="fas fa-search text-gray-500"></i>
                                 </span>
-                                <input type="text" placeholder="Search" class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" name="search" id="search">
+                                <input type="text"
+                                    ng-model="search"
+                                    placeholder="Search"
+                                    class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" 
+                                    name="search"
+                                    id="search">
                             </div>
                         </div>
                         <div class="ml-6 flex-shrink-0 flex items-center">
@@ -88,7 +93,7 @@
         <div class="flex-1 overflow-auto">
             <main class="p-3 h-full flex overflow-hidden">
                 <div class="flex-1 min-h-0 overflow-y-auto">
-                    <div ng-repeat="todo in todos" ng-class="{completed: todo.complete}">
+                    <div ng-repeat="todo in todos | filter:search" ng-class="{completed: todo.complete}">
                         <h3 class="text-sm pt-3 pb-1 font-medium text-gray-700">
                             <div class="flex justify-between">
                                 <div>

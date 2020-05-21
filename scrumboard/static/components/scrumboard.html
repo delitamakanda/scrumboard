@@ -53,7 +53,12 @@
                                 <span class="absolute inset-y-0 left-0 flex pl-3 items-center">
                                     <i class="fas fa-search text-gray-500"></i>
                                 </span>
-                                <input type="text" placeholder="Search" class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" name="search" id="search">
+                                <input type="text"
+                                    ng-model="search"
+                                    placeholder="Search" 
+                                    class="block w-full rounded-lg border border-gray-400 pr-4 py-2 leading-tight pl-10 text-gray-900 text-sm placeholder-gray-500" 
+                                    name="search"
+                                    id="search">
                             </div>
                         </div>
                         <div class="ml-6 flex-shrink-0 flex items-center">
@@ -118,7 +123,7 @@
                     </h3>
                     <div class="flex-1 min-h-0 overflow-y-auto">
                         <ul class="mt-2 pb-3">
-                            <li class="mt-3 block rounded-lg shadow bg-white p-5" ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse">
+                            <li class="mt-3 block rounded-lg shadow bg-white p-5" ng-repeat="card in list.cards | filter:filterBy | filter:search | orderBy:sortBy:reverse">
                                 <scrumboard-card></scrumboard-card>
                             </li>
                         </ul>
