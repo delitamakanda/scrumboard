@@ -80,7 +80,7 @@
 
             $scope.deletedTodo = function(id) {
                 Todos.deleteTodo(id);
-                $scope.todoCompleted.splice(-1, 1);
+                $scope.todoCompleted.splice(-1, id);
                 $scope.todos = $scope.todos.filter(function(todo) {
                     return todo.id !== id;
                 })
