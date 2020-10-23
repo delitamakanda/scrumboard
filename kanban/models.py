@@ -1,10 +1,12 @@
 from __future__ import unicode_literals
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils import timezone
 
 from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+@python_2_unicode_compatible
 class List(models.Model):
     user = models.ForeignKey(User, related_name='lists', blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
@@ -12,6 +14,7 @@ class List(models.Model):
     def __str__(self):
         return "List : {}".format(self.name)
 
+@python_2_unicode_compatible
 class Card(models.Model):
     TAG_CHOICES = (
         ('#BEE3F8', 'Bug'),
@@ -35,6 +38,7 @@ class Card(models.Model):
         return "Card : {}".format(self.title)
 
 
+@python_2_unicode_compatible
 class Todo(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
