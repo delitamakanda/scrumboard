@@ -5,7 +5,7 @@ gunicorn==19.6.0
 psycopg2-binary==2.7.5
 dj-static==0.0.6
 waitress==2.1.1
-requests==2.12.4
+requests==2.15.0
 djangorestframework
 python-decouple==3.1
 awsebcli==3.14.1
