@@ -17,3 +17,5 @@
 * https://github.com/masci/notification_example/blob/master/notification/static/notification/notification.js
 * https://tailwindcss.com/course/making-the-dropdown-interactive
 * https://codepen.io/brandyscarney/pen/gbZrNQ
+
+* https://medium.com/@cknorow/really-fast-bulk-updates-with-django-rest-framework-43594b18bd75
