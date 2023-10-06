@@ -8,3 +8,8 @@ scrumboard app from Pluralsight courses
 # Continuous integration
 
 [![Scrumboard CI](https://github.com/delitamakanda/scrumboard/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/delitamakanda/scrumboard/actions/workflows/ci.yml)
+
+
+## Demo
+
+![Kanban board](scrumy88.herokuapp.com_.png)
